@@ -1,3 +1,3 @@
 # Gogo Recycling
 
-Empowering people to make sustainable life choice
+Empowering society to make sustainable choices

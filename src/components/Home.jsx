@@ -17,6 +17,7 @@ const Home = () => {
             >
                 Learn React
             </a>
+            <p>Gogo Recycling</p>
         </header>
     );
 };
