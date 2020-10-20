@@ -15,10 +15,11 @@ const ContextProvider = props => {
                 const userRef = firestore.collection("users").doc(localUserData.uid);
 
                 (await userRef.get()).exists || await userRef.set({
-                    username: localUserData.username,
+                    displayName: localUserData.displayName,
                     email: localUserData.email,
                     timeCreated: firebase.firestore.FieldValue.serverTimestamp(),
                     admin: false,
+                    providerData: localUserData.providerData
                 });
 
                 unsubscribe = userRef.onSnapshot(snapshot => {
