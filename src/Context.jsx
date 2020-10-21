@@ -19,7 +19,6 @@ const ContextProvider = props => {
                     email: localUserData.email,
                     timeCreated: firebase.firestore.FieldValue.serverTimestamp(),
                     admin: false,
-                    providerData: localUserData.providerData
                 });
 
                 unsubscribe = userRef.onSnapshot(snapshot => {
