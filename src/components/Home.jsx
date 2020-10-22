@@ -9,8 +9,8 @@ const Home = () => {
     return (
         <main>
             <h1>Gogo Recycling</h1>
-            {user ? <button onClick={() => fireauth.signOut()}>Hello {user.displayName}</button> :
-            <button onClick={() => fireauth.signInWithPopup(new firebase.auth.GoogleAuthProvider())}>Sign in</button>}
+            {user ? <button className="btn btn-primary" onClick={() => fireauth.signOut()}>Hello {user.displayName}</button> :
+            <button className="btn btn-primary" onClick={() => fireauth.signInWithPopup(new firebase.auth.GoogleAuthProvider())}>Sign in</button>}
             <p>Empowering society to make sustainable decisions ♻</p>
             <p>Using Firebase and React</p>
             <img className="App-logo" src={logo} alt="React Logo"/>
