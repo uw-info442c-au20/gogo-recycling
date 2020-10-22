@@ -1,9 +1,21 @@
 
 import React from "react";
+import { useContext } from "react";
+import { Context } from "../Context";
 import { Link, useLocation } from "react-router-dom";
+import { fireauth, firebase } from "../config/firebase";
 
 const Navigation = () => {
-    const location = useLocation().pathname.split("/")[1];
+    const { user } = useContext(Context);
+    const rootPath = useLocation().pathname.split("/")[1];
+
+    const login = () => {
+        fireauth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+    };
+
+    const logout = () => {
+        fireauth.signOut();
+    };
 
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -18,14 +30,26 @@ const Navigation = () => {
                 <span className="navbar-toggler-icon"></span>
             </button>
             <div className="collapse navbar-collapse" id="navbarNav">
-                <ul className="navbar-nav">
-                    <li className={"nav-item " + (location === "" ? "active" : "")}>
-                        <Link className="nav-link" to="/">Home</Link>
+                <ul className="navbar-nav mr-auto">
+                    <li className={"nav-item " + (rootPath === "" ? "active" : "")}>
+                        <Link className="nav-link" to="/">
+                            Home
+                        </Link>
                     </li>
-                    <li className={"nav-item " + (location === "test" ? "active" : "")}>
-                        <Link className="nav-link" to="/test">Test</Link>
+                    <li className={"nav-item " + (rootPath === "test" ? "active" : "")}>
+                        <Link className="nav-link" to="/test">
+                            Test
+                        </Link>
                     </li>
                 </ul>
+                <div className="nav-item active">
+                    <button
+                        className="btn btn-primary"
+                        onClick={() => (user ? logout() : login())}
+                    >
+                        {user ? `Hi ${user.displayName}` : "Sign in"}
+                    </button>
+                </div>
             </div>
         </nav>
     );
