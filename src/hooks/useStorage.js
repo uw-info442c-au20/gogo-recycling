@@ -24,11 +24,6 @@ const useStorage = files => {
                         setError(err);
                     }, async () => {
                         const url = await storageRef.getDownloadURL();
-                        setProgresses(progresses => {
-                            let newProgresses = progresses.slice();
-                            newProgresses[i] = 100;
-                            return newProgresses;
-                        });
                         setUrls(urls => {
                             let newURLS = urls.slice();
                             newURLS[i] = url;
