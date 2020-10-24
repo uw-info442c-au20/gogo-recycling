@@ -3,6 +3,7 @@ import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
 import usePosts from "../hooks/usePosts";
+import PostPreview from "./PostPreview";
 
 const Posts = postID => {
     const posts = usePosts();
@@ -22,32 +23,13 @@ const Posts = postID => {
         getUsers();
     }, [ posts ]);
 
-    const postPreview = post => {
-        return (
-            <div key={post.id} className="card bg-info mb-3">
-                <img
-                    src={post.images[0]} alt=""
-                    className="card-img-top"
-                />
-                <div className="card-body">
-                    <h4 className="card-title">
-                        {post.title}
-                    </h4>
-                    <h6>By {users[post.user.id] && users[post.user.id].displayName}</h6>
-                    <p className="mb-0">Description: {post.description}</p>
-                    <p><em>
-                        {post.timeCreated && post.timeCreated.toDate().toLocaleString()}
-                    </em></p>
-                </div>
-            </div>
-        );
-    };
-
     return (
         <main>
             <h1>Posts</h1>
             <section className="posts w-50 mx-auto">
-                {posts.length > 0 && posts.map(post => postPreview(post))}
+                {posts.length > 0 && posts.map(post =>
+                    <PostPreview key={post.id} post={ post } users={ users }/>
+                )}
             </section>
         </main>
     );
