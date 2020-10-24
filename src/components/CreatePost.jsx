@@ -61,7 +61,7 @@ const CreatePost = () => {
 
         if (state === "FINISH") {
             createPost();
-            history.push("/");
+            history.push("/posts");
         }
     }, [ state, urls, user, history, title, description, isAnonymous ]);
 
@@ -75,9 +75,9 @@ const CreatePost = () => {
     }, [ progress, urls, files ]);
 
     return (
-        <main>
+        <section>
             <h1>Create a post</h1>
-            <form onSubmit={submitPost} style={{ width: "70%" }} className="mx-auto">
+            <form onSubmit={submitPost} className="mx-auto w-75">
                 <div className="form-group">
                     <label htmlFor="title">Title</label>
                     <input
@@ -130,10 +130,11 @@ const CreatePost = () => {
                 </div>
                 <button
                     type="submit" className="btn btn-primary mt-4"
-                    disabled={state !== "SELECT"}
+                    disabled={(state !== "SELECT") || !user}
                 >
                     Create Your Post!
                 </button>
+                {!user && <p>Please login to create a post</p>}
                 {state === "UPLOAD" &&
                 <div className="progress mt-3">
                     <div
@@ -147,7 +148,7 @@ const CreatePost = () => {
                 </div>
                 }
             </form>
-        </main>
+        </section>
     );
 };
 

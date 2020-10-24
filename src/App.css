@@ -4,8 +4,7 @@
 
 .App {
     text-align: center;
-    height: 100vh;
-    background-color: #282c34;
+    min-height: 100vh;
     color: white;
 }
 

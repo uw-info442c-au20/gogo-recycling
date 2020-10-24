@@ -18,7 +18,7 @@ const Navigation = () => {
     };
 
     return (
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
             <Link className="navbar-brand" to="/">
                 Gogo Recycling
             </Link>
@@ -41,6 +41,11 @@ const Navigation = () => {
                             Create
                         </Link>
                     </li>
+                    <li className={"nav-item " + (rootPath === "posts" ? "active" : "")}>
+                        <Link className="nav-link" to="/posts">
+                            Posts
+                        </Link>
+                    </li>
                     <li className={"nav-item " + (rootPath === "test" ? "active" : "")}>
                         <Link className="nav-link" to="/test">
                             Test
@@ -49,7 +54,7 @@ const Navigation = () => {
                 </ul>
                 <div className="nav-item active">
                     <button
-                        className="btn btn-primary"
+                        className="btn btn-light"
                         onClick={() => (user ? logout() : login())}
                     >
                         {user ? `Hi ${user.displayName}` : "Sign in"}

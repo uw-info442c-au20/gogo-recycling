@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { firestore } from "../config/firebase";
 
-const usePosts = (options = null) => {
+const usePosts = options => {
     const [ posts, setPosts ] = useState([]);
 
     useEffect(() => {
@@ -19,10 +19,10 @@ const usePosts = (options = null) => {
         }
 
         const unsubscribe = query
-            .orderBy("timeCreated", "asc")
+            .orderBy("timeCreated", "desc")
             .onSnapshot(snapshot => {
                 let newPosts = [];
-                console.log("Updating Pod Messages");
+                console.log("Updating Post Information");
                 snapshot.forEach(post => {
                     newPosts.push({ id: post.id, ...post.data()});
                 });
