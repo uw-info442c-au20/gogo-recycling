@@ -1,9 +1,9 @@
 import React from "react";
 
-const Post = postID => {
+const Post = ({post, setActivePost}) => {
     return (
         <section>
-            This will be a post
+            <h3>This will be a post</h3>
         </section>
     );
 };

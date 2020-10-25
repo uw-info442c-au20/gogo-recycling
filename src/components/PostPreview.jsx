@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 
-const PostPreview = ({post, users}) => {
+const PostPreview = ({post, users, setActivePost}) => {
     const [ pictureIndex, setPictureIndex ] = useState(0);
 
     return (
-        <div className="card bg-info mb-3">
+        <div className="card bg-info mb-3" onClick={() => setActivePost(post)}>
             <img
                 src={post.images[pictureIndex]} alt=""
                 className="card-img-top"
