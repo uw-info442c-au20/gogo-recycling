@@ -8,10 +8,10 @@ const CreatePost = () => {
     const [ title, setTitle ] = useState("");
     const [ files, setFiles ] = useState([]);
     const [ progress, setProgress ] = useState(0);
+    const { progresses, urls } = useStorage(files);
     const [ state, setState ] = useState("SELECT");
     const [ selected, setSelected ] = useState([]);
     const [ description, setDescription ] = useState("");
-    const { progresses, urls } = useStorage(files);
     const [ isAnonymous, setIsAnonymous ] = useState(false);
 
     const history = useHistory();
@@ -85,7 +85,7 @@ const CreatePost = () => {
                         id="title" placeholder="Type your title"
                         value={title} onChange={event => {
                             setTitle(event.target.value);
-                        }} required
+                        }} required disabled={state !== "SELECT"}
                     />
                 </div>
                 <div className="form-group">
@@ -96,7 +96,7 @@ const CreatePost = () => {
                         placeholder="Type your description"
                         value={description} onChange={event => {
                             setDescription(event.target.value);
-                        }} required
+                        }} required disabled={state !== "SELECT"}
                     />
                 </div>
                 <div className="input-group">
@@ -106,6 +106,7 @@ const CreatePost = () => {
                             id="fileInput" type="file"
                             onChange={selectFiles}
                             accept="image/*" multiple
+                            disabled={state !== "SELECT"}
                         />
                         <label className="custom-file-label" htmlFor="fileInput">
                             {selected.length > 0 ?
@@ -121,7 +122,7 @@ const CreatePost = () => {
                             className="form-check-input" type="checkbox" id="isAnonymous"
                             value={isAnonymous} onChange={event => {
                                 setIsAnonymous(event.target.value);
-                            }}
+                            }} disabled={state !== "SELECT"}
                         />
                         <label className="form-check-label" htmlFor="isAnonymous">
                             Post Anonymously
