@@ -7,10 +7,15 @@ import usePosts from "../hooks/usePosts";
 import PostPreview from "./PostPreview";
 
 const Posts = postID => {
+    // Post information
     const posts = usePosts();
+    // Every user that correlate to the posts
     const [ users, setUsers ] = useState({});
+
+    // Contains information about the current selected post
     const [ activePost, setActivePost ] = useState();
 
+    // Retrieve users that correspond with the posts
     useEffect(() => {
         const getUsers = async () => {
             const newUsers = {};

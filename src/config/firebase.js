@@ -3,6 +3,9 @@ import "firebase/storage";
 import "firebase/firestore";
 import * as firebase from "firebase/app";
 
+// This file sets up firebase for the whole project. Import into
+// files to use
+
 const firebaseConfig = {
     apiKey: "AIzaSyCdZeChzEgtbzBnHYlM1sQlLFVreeXNRRo",
     authDomain: "gogo-recycling.firebaseapp.com",

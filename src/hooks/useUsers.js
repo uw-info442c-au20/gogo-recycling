@@ -5,9 +5,10 @@ const useUsers = (options = null) => {
     const [ users, setUsers ] = useState([]);
 
     useEffect(() => {
-        console.log("Updating Posts");
+        console.log("Updating Users");
         let query = firestore.collection("users")
 
+        // Logic for any type of user filtering
         if (options) {
             // Extra Options
         }

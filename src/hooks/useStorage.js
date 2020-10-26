@@ -9,6 +9,7 @@ const useStorage = files => {
 
     useEffect(() => {
         if (files && files.length > 0) {
+            // We add a storage reference/listener for each file
             for (let i = 0; i < files.length; i++) {
                 const file = files[i];
                 const storageRef = storage.ref(`images/${Date.now()}-${file.name}`);

@@ -5,14 +5,18 @@ import { firestore, firebase } from "../config/firebase";
 import React, { useEffect, useState, useContext } from "react";
 
 const CreatePost = () => {
+    // State for form fields
     const [ title, setTitle ] = useState("");
     const [ files, setFiles ] = useState([]);
-    const [ progress, setProgress ] = useState(0);
-    const { progresses, urls } = useStorage(files);
-    const [ state, setState ] = useState("SELECT");
-    const [ selected, setSelected ] = useState([]);
     const [ description, setDescription ] = useState("");
     const [ isAnonymous, setIsAnonymous ] = useState(false);
+
+    // State to keep track of the current state of the upload
+    const [ progress, setProgress ] = useState(0);
+    // Indicates the current step of the process
+    const [ state, setState ] = useState("SELECT");
+    const [ selected, setSelected ] = useState([]);
+    const { progresses, urls } = useStorage(files);
 
     const history = useHistory();
     const { user } = useContext(Context);
