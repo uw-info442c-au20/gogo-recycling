@@ -4,10 +4,10 @@ const PostPreview = ({post, users, setActivePost}) => {
     const [ pictureIndex, setPictureIndex ] = useState(0);
 
     return (
-        <div className="card bg-info mb-3" onClick={() => setActivePost(post)}>
+        <div className="card bg-success text-white mb-3 p-4" onClick={() => setActivePost(post)}>
             <img
                 src={post.images[pictureIndex]} alt=""
-                className="card-img-top"
+                className="card-img-top rounded"
             />
             <div className="container">
                 <div className="row">

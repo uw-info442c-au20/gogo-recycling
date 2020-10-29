@@ -18,7 +18,7 @@ const Navigation = () => {
     };
 
     return (
-        <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+        <nav className="navbar navbar-expand-lg navbar-dark bg-success">
             <Link className="navbar-brand" to="/">
                 Gogo Recycling
             </Link>

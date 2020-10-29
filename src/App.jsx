@@ -12,7 +12,7 @@ import CreatePost from "./components/CreatePost";
 
 const App = () => {
     return (
-        <div className="App bg-dark">
+        <div className="App">
             <ContextProvider>
                 <Router>
                     <Navigation/>
