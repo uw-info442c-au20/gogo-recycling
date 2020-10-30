@@ -22,6 +22,7 @@ const ContextProvider = props => {
                 });
 
                 unsubscribe = userRef.onSnapshot(snapshot => {
+                    console.log(snapshot.data(), localUserData)
                     setUser({
                         ...snapshot.data(),
                         local: { ...localUserData }

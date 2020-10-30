@@ -1,21 +1,14 @@
 
-import React from "react";
-import { useContext } from "react";
 import { Context } from "../Context";
+import React, { useContext } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { fireauth, firebase } from "../config/firebase";
+
+import SignInModal from "./SignInModal";
+import ProfileModal from "./ProfileModal";
 
 const Navigation = () => {
     const { user } = useContext(Context);
     const rootPath = useLocation().pathname.split("/")[1];
-
-    const login = () => {
-        fireauth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
-    };
-
-    const logout = () => {
-        fireauth.signOut();
-    };
 
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-success">
@@ -55,10 +48,12 @@ const Navigation = () => {
                 <div className="nav-item active">
                     <button
                         className="btn btn-light"
-                        onClick={() => (user ? logout() : login())}
+                        data-toggle="modal" data-target={user ? "#profileModal" : "#signInModal"}
                     >
                         {user ? `Hi ${user.displayName}` : "Sign in"}
                     </button>
+                    <SignInModal/>
+                    {user && <ProfileModal user={ user }/>}
                 </div>
             </div>
         </nav>
