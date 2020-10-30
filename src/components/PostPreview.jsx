@@ -25,7 +25,11 @@ const PostPreview = ({post, users, setActivePost}) => {
                         <h4 className="card-title">
                             {post.title}
                         </h4>
-                        <h6>By {users[post.user.id] && users[post.user.id].displayName}</h6>
+                        <h6>
+                            By {users[post.user.id] ?
+                            users[post.user.id].displayName :
+                            <em>Unknown</em>}
+                        </h6>
                         <p className="mb-0">
                             Image {pictureIndex + 1}/{post.images.length}
                             <br/>
