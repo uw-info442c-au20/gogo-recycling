@@ -41,7 +41,7 @@ const Posts = postID => {
                     />
                 )}
             </section>
-            {activePost && <PostModal post={activePost}/>}
+            <PostModal post={activePost}/>
         </main>
     );
 };

@@ -6,6 +6,7 @@ const PostModal = ({ post }) => {
     return (
         <section className="modal fade" id="postModal">
             <div className="modal-dialog modal-xl modal-dialog-centered">
+                {post &&
                 <div className="modal-content">
                     <div className="modal-header mx-auto">
                         <h2>{post.title}</h2>
@@ -21,6 +22,7 @@ const PostModal = ({ post }) => {
                         </p>
                     </div>
                 </div>
+                }
             </div>
         </section>
     );
