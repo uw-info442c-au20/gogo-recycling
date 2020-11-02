@@ -22,17 +22,23 @@ const PostPreview = ({post, users, setActivePost}) => {
                     </div>
                     }
                     <div className="card-body">
-                        <h4 className="card-title">
+                        <h4 className="card-title mb-0">
                             {post.title}
                         </h4>
                         <h6>
-                            By {users[post.user.id] ?
-                            users[post.user.id].displayName :
-                            <em>Unknown</em>}
+                            By {
+                                post.isAnonymous ? "Anonymous" : (
+                                    users[post.user.id] ?
+                                    users[post.user.id].displayName :
+                                    <em>Unknown</em>
+                                )
+                            }
                         </h6>
+                        {post.images && post.images.length > 1 &&
                         <p className="mb-0">
                             Image {pictureIndex + 1}/{post.images.length}
-                            <br/>
+                        </p>}
+                        <p className="mb-0">
                             Description: {post.description}
                         </p>
                         <p><em>

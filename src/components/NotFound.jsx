@@ -7,6 +7,7 @@ const NotFound = () => {
 
     return (
         <main>
+            <i class="fas fa-exclamation-circle text-danger fa-5x"/>
             <h1>404 Page Not Found</h1>
             <p>
                 You tried going to <strong><em>{path}</em></strong>,
