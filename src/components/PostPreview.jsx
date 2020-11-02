@@ -4,7 +4,11 @@ const PostPreview = ({post, users, setActivePost}) => {
     const [ pictureIndex, setPictureIndex ] = useState(0);
 
     return (
-        <div className="card bg-success text-white mb-3 p-4" onClick={() => setActivePost(post)}>
+        <div
+            className="card bg-success text-white mb-3 p-4"
+            onClick={() => setActivePost(post)}
+            data-toggle="modal" data-target="#postModal"
+        >
             <img
                 src={post.images[pictureIndex]} alt=""
                 className="card-img-top rounded"
@@ -13,6 +17,7 @@ const PostPreview = ({post, users, setActivePost}) => {
                 <div className="row">
                     {post.images && post.images.length > 1 &&
                     <div className="btn bg-transparent my-auto" onClick={event => {
+                        event.stopPropagation();
                         setPictureIndex(
                             (post.images.length + pictureIndex - 1) % post.images.length
                         );
@@ -47,6 +52,7 @@ const PostPreview = ({post, users, setActivePost}) => {
                     </div>
                     {post.images && post.images.length > 1 &&
                     <div className="btn bg-transparent my-auto" onClick={event => {
+                        event.stopPropagation();
                         setPictureIndex((pictureIndex + 1) % post.images.length);
                     }}>
                         <span className="carousel-control-next-icon"></span>

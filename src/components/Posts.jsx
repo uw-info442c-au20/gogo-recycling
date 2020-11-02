@@ -3,6 +3,7 @@ import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
 import usePosts from "../hooks/usePosts";
+import PostModal from "./PostModal";
 
 import PostPreview from "./PostPreview";
 
@@ -40,6 +41,7 @@ const Posts = postID => {
                     />
                 )}
             </section>
+            {activePost && <PostModal post={activePost}/>}
         </main>
     );
 };
