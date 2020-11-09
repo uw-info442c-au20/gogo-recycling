@@ -3,3 +3,7 @@
 Empowering society to make sustainable choices
 
 Emoji Commits are OP 🔥
+
+Build Instruction:
+1. npm install
+2. npm start

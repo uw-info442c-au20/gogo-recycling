@@ -11,10 +11,10 @@ const Navigation = () => {
     const rootPath = useLocation().pathname.split("/")[1];
 
     return (
-        <nav className="navbar navbar-expand-lg navbar-dark bg-success">
+        <nav className="navbar navbar-expand-lg navbar-dark bg-secondary">
             <Link className="navbar-brand" to="/">
-                <span>Gogo Recycling </span>
-                <i className="fas fa-recycle"></i>
+                <span className style={{ color: '#00FF1A', fontWeight: "bold"}}> Gogo Recycling <i className="fas fa-recycle"></i>
+                </span>
             </Link>
             <button
                 className="navbar-toggler" type="button" data-toggle="collapse"
