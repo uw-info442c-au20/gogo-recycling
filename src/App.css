@@ -18,7 +18,7 @@ body {
 /* banner */
 #banner {
     color: white;
-    background-image: url("../src/imgs/recycle.jpg");
+    background-image: url("../src/resources/recycle.jpg");
     background-repeat: inherit;
     background-size: 100%;
 }
@@ -51,7 +51,7 @@ body {
 }
 
 /* button for recyclig guide */
-.btn {
+.btnEffect {
     margin: 20px;
     padding: 10px 10px;
     border-color: #f1c40f;
@@ -65,23 +65,9 @@ body {
     transition: background 300ms ease-in-out;
   }
 
-  .btn2 {
-    margin: 20px;
-    padding: 10px 10px;
-    border-color: #f1c40f;
-    color: #1e1af1;
-    background-color: #f1c40f;
-    background-image: -webkit-linear-gradient(45deg, orange 50%, transparent 50%);
-    background-image: linear-gradient(45deg, orange 50%, transparent 50%);
-    background-position: 100%;
-    background-size: 400%;
-    -webkit-transition: background 300ms ease-in-out;
-    transition: background 300ms ease-in-out;
-
-  }
-  .btn:hover {
+.btnEffect:hover {
     background-position: 0;
-  }
+}
 
 /* Blockquote main style */
 .blockquote {
@@ -114,20 +100,17 @@ body {
     margin: 0;
 }
 
-/* .blockquote-wrapper {
-    margin-top: 2em;
-} */
  /* Blockquote subheader */
- .blockquote h4 {
-     position: relative;
-     color: #292a2b;
-     font-size: 1.4rem;
-     font-weight: normal;
-     line-height: 1;
-     margin: 0;
-     padding-top: 20px;
-     z-index: 1;
- }
+.blockquote h4 {
+    position: relative;
+    color: #292a2b;
+    font-size: 1.4rem;
+    font-weight: normal;
+    line-height: 1;
+    margin: 0;
+    padding-top: 20px;
+    z-index: 1;
+}
 
 
 @media (min-width:320px)  { 
