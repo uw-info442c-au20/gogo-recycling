@@ -11,11 +11,11 @@ body {
     background-color: #F5F5F5
 }
 
-.content {
-    margin-left: 50px;
-    margin-right: 50px;
+.text {
+    padding: 25px 25px;
 }
 
+/* banner */
 #banner {
     color: white;
     background-image: url("../src/imgs/recycle.jpg");
@@ -28,27 +28,68 @@ body {
     height: 100%
 }
 
-#stat2 {
+#stat2, #stat3{
     width: 50%;
     height:350px;
-
 }
 
 #item1Paragraph {
     text-align: left;
+    word-break:break-all;
+    min-height: 400px;
+    height: 100%
 }
 
 .item1 {
     height: 400px;
 }
- 
+
+.recylcingInfo {
+    text-align: left;
+    min-height: 350px;
+    height:100%;
+}
+
+/* button for recyclig guide */
+.btn {
+    margin: 20px;
+    padding: 10px 10px;
+    border-color: #f1c40f;
+    color: #1e1af1;
+    background-color: #f1c40f;
+    background-image: -webkit-linear-gradient(45deg, orange 50%, transparent 50%);
+    background-image: linear-gradient(45deg, orange 50%, transparent 50%);
+    background-position: 100%;
+    background-size: 400%;
+    -webkit-transition: background 300ms ease-in-out;
+    transition: background 300ms ease-in-out;
+  }
+
+  .btn2 {
+    margin: 20px;
+    padding: 10px 10px;
+    border-color: #f1c40f;
+    color: #1e1af1;
+    background-color: #f1c40f;
+    background-image: -webkit-linear-gradient(45deg, orange 50%, transparent 50%);
+    background-image: linear-gradient(45deg, orange 50%, transparent 50%);
+    background-position: 100%;
+    background-size: 400%;
+    -webkit-transition: background 300ms ease-in-out;
+    transition: background 300ms ease-in-out;
+
+  }
+  .btn:hover {
+    background-position: 0;
+  }
+
 /* Blockquote main style */
 .blockquote {
     position: relative;
     font-family: 'Montserrat', sans-serif;
     font-weight: 800;
-    color: #ffffff;
-    /* padding: 30px 0; */
+    /* color: light-blue; */
+    padding: 35px 0;
     width: 100%;
     /* max-width: 500px; */
     z-index: 1;
@@ -58,6 +99,11 @@ body {
     border-bottom: solid 1px;
 }
 
+.cycleEconomyInfo {
+    text-align: left;
+    min-height: 350px;
+    height:100%;
+}
 /* Blockquote header */
 .blockquote h2 {
     position: relative;
@@ -68,7 +114,9 @@ body {
     margin: 0;
 }
 
-
+/* .blockquote-wrapper {
+    margin-top: 2em;
+} */
  /* Blockquote subheader */
  .blockquote h4 {
      position: relative;
@@ -80,7 +128,6 @@ body {
      padding-top: 20px;
      z-index: 1;
  }
-
 
 
 @media (min-width:320px)  { 
@@ -95,12 +142,28 @@ body {
     #bannerTitle {
         font-size: 5em;
     }
+
+    .contentOdd {
+        margin-left: 50px;
+    }
+    
+    .contentEven {
+        margin-right: 50px;
+    }
 }
 
 /* increase header size after 600px */
 @media all and (min-width: 600px) {
     .blockquote h1 {
         font-size: 60px;
+    }
+
+    .contentOdd {
+        margin-left: 50px;
+    }
+    
+    .contentEven {
+        margin-right: 50px;
     }
 }
 
@@ -109,12 +172,28 @@ body {
     #bannerTitle {
         font-size: 6em;
     }
+
+    .contentOdd {
+        margin-left: 50px;
+    }
+    
+    .contentEven {
+        margin-right: 50px;
+    }
 }
 
 @media (min-width:961px)  { 
     /* tablet, landscape iPad, lo-res laptops ands desktops */ 
     #bannerTitle {
         font-size: 7em;
+    }
+
+    .contentOdd {
+        margin-left: 50px;
+    }
+    
+    .contentEven {
+        margin-right: 50px;
     }
 }
 
@@ -123,11 +202,27 @@ body {
     #bannerTitle {
         font-size: 8em;
     }
+
+    .contentOdd {
+        margin-left: 50px;
+    }
+    
+    .contentEven {
+        margin-right: 50px;
+    }
 }
 
 @media (min-width:1281px) { 
     /* hi-res laptops and desktops */
     #bannerTitle {
         font-size: 11em;
+    }
+
+    .contentOdd {
+        margin-left: 50px;
+    }
+    
+    .contentEven {
+        margin-right: 50px;
     }
 }
