@@ -11,66 +11,37 @@ body {
     background-color: #F5F5F5
 }
 
-.text {
-    padding: 25px 25px;
+.nav-link {
+    font-size: 1.25rem;
 }
 
 /* banner */
 #banner {
     color: white;
-    background-image: url("../src/resources/recycle.jpg");
+    background-image: url("../src/resources/home-banner/soda-cans.jpg");
     background-repeat: inherit;
     background-size: 100%;
-}
-
-#stat1 {
-    width: 100%;
-    height: 100%
-}
-
-#stat2, #stat3{
-    width: 50%;
-    height:350px;
-}
-
-#item1Paragraph {
-    text-align: left;
-    word-break:break-all;
-    min-height: 400px;
-    height: 100%
-}
-
-.item1 {
-    height: 400px;
-}
-
-.recylcingInfo {
-    text-align: left;
-    min-height: 350px;
-    height:100%;
+    min-height: 125px;
+    text-shadow: black 0.15em 0.15em 0.2em;
 }
 
 /* button for recyclig guide */
-.btnEffect {
+.btn-effect {
     margin: 20px;
     padding: 10px 10px;
-    border-color: #f1c40f;
-    color: #1e1af1;
-    background-color: #f1c40f;
-    background-image: -webkit-linear-gradient(45deg, orange 50%, transparent 50%);
-    background-image: linear-gradient(45deg, orange 50%, transparent 50%);
+    background-image: linear-gradient(45deg, darkorange 50%, transparent 50%);
     background-position: 100%;
     background-size: 400%;
     -webkit-transition: background 300ms ease-in-out;
     transition: background 300ms ease-in-out;
   }
 
-.btnEffect:hover {
+.btn-effect:hover {
     background-position: 0;
 }
 
 /* Blockquote main style */
-.blockquote {
+blockquote {
     position: relative;
     font-family: 'Montserrat', sans-serif;
     font-weight: 800;
@@ -85,13 +56,8 @@ body {
     border-bottom: solid 1px;
 }
 
-.cycleEconomyInfo {
-    text-align: left;
-    min-height: 350px;
-    height:100%;
-}
 /* Blockquote header */
-.blockquote h2 {
+blockquote h2 {
     position: relative;
     color: black;
     font-size: 40px;
@@ -101,7 +67,7 @@ body {
 }
 
  /* Blockquote subheader */
-.blockquote h4 {
+blockquote h4 {
     position: relative;
     color: #292a2b;
     font-size: 1.4rem;
@@ -110,102 +76,4 @@ body {
     margin: 0;
     padding-top: 20px;
     z-index: 1;
-}
-
-
-@media (min-width:320px)  { 
-    /* smartphones, iPhone, portrait 480x320 phones */ 
-    #bannerTitle {
-        font-size: 3.5em;
-    }
-}
-
-@media (min-width:411px)  { 
-    /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */ 
-    #bannerTitle {
-        font-size: 5em;
-    }
-
-    .contentOdd {
-        margin-left: 50px;
-    }
-    
-    .contentEven {
-        margin-right: 50px;
-    }
-}
-
-/* increase header size after 600px */
-@media all and (min-width: 600px) {
-    .blockquote h1 {
-        font-size: 60px;
-    }
-
-    .contentOdd {
-        margin-left: 50px;
-    }
-    
-    .contentEven {
-        margin-right: 50px;
-    }
-}
-
-@media (min-width:641px)  { 
-    /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */ 
-    #bannerTitle {
-        font-size: 6em;
-    }
-
-    .contentOdd {
-        margin-left: 50px;
-    }
-    
-    .contentEven {
-        margin-right: 50px;
-    }
-}
-
-@media (min-width:961px)  { 
-    /* tablet, landscape iPad, lo-res laptops ands desktops */ 
-    #bannerTitle {
-        font-size: 7em;
-    }
-
-    .contentOdd {
-        margin-left: 50px;
-    }
-    
-    .contentEven {
-        margin-right: 50px;
-    }
-}
-
-@media (min-width:1025px) { 
-    /* big landscape tablets, laptops, and desktops */ 
-    #bannerTitle {
-        font-size: 8em;
-    }
-
-    .contentOdd {
-        margin-left: 50px;
-    }
-    
-    .contentEven {
-        margin-right: 50px;
-    }
-}
-
-@media (min-width:1281px) { 
-    /* hi-res laptops and desktops */
-    #bannerTitle {
-        font-size: 11em;
-    }
-
-    .contentOdd {
-        margin-left: 50px;
-    }
-    
-    .contentEven {
-        margin-right: 50px;
-    }
 }

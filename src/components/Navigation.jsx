@@ -13,8 +13,9 @@ const Navigation = () => {
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-secondary">
             <Link className="navbar-brand" to="/">
-                <span className style={{ color: '#00FF1A', fontWeight: "bold"}}> Gogo Recycling <i className="fas fa-recycle"></i>
-                </span>
+                <h3 style={{ color: "#00FF1A" }}>
+                    Gogo Recycling <i className="fas fa-recycle"></i>
+                </h3>
             </Link>
             <button
                 className="navbar-toggler" type="button" data-toggle="collapse"
