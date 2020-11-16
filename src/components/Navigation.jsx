@@ -31,11 +31,6 @@ const Navigation = () => {
                             Home
                         </Link>
                     </li>
-                    <li className={"nav-item " + (rootPath === "create" ? "active" : "")}>
-                        <Link className="nav-link" to="/create">
-                            Create
-                        </Link>
-                    </li>
                     <li className={"nav-item " + (rootPath === "posts" ? "active" : "")}>
                         <Link className="nav-link" to="/posts">
                             Posts

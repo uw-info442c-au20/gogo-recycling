@@ -3,9 +3,10 @@ import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
 import usePosts from "../hooks/usePosts";
-import PostModal from "./PostModal";
 
+import PostModal from "./PostModal";
 import PostPreview from "./PostPreview";
+import CreatePostModal from "./CreatePostModal";
 
 const Posts = postID => {
     // Post information
@@ -33,6 +34,14 @@ const Posts = postID => {
     return (
         <main>
             <h1>Posts</h1>
+            <button
+                className="btn btn-primary my-2"
+                data-toggle="modal" data-target="#createPostModal"
+            >
+                <i
+                    className="fas fa-plus-circle fa-2x"
+                ></i>
+            </button>
             <section className="posts w-50 mx-auto">
                 {posts.length > 0 && posts.map(post =>
                     <PostPreview
@@ -42,6 +51,7 @@ const Posts = postID => {
                 )}
             </section>
             <PostModal post={activePost}/>
+            <CreatePostModal/>
         </main>
     );
 };
