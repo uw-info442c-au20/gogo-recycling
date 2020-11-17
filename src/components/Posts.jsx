@@ -49,8 +49,8 @@ const Posts = postID => {
             <section className="posts w-50 mx-auto">
                 {posts.length > 0 && posts.map(post =>
                     <PostPreview
-                        key={post.id} post={ post }
-                        users={ users } setActivePost={ setActivePost }
+                        key={post.id} post={post}
+                        users={users} setActivePost={setActivePost}
                     />
                 )}
             </section>

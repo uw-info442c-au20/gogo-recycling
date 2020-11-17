@@ -100,6 +100,13 @@ const CreatePostModal = ({ toggleModal }) => {
                         <h1 className="mx-auto">
                             Create a post
                         </h1>
+                        <i
+                            className="fas fa-times-circle fa-lg text-danger"
+                            style={{
+                                position: "absolute", cursor: "pointer",
+                                right: "15px", top: "15px"
+                            }} onClick={toggleModal}
+                        />
                     </div>
                     <div className="modal-body">
                         <form onSubmit={submitPost} className="mx-auto w-75">
