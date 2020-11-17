@@ -1,7 +1,7 @@
 
 import React from "react";
-import { useState } from "react";
-import { useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+
 import usePosts from "../hooks/usePosts";
 
 import PostModal from "./PostModal";
@@ -9,6 +9,12 @@ import PostPreview from "./PostPreview";
 import CreatePostModal from "./CreatePostModal";
 
 const Posts = postID => {
+    // Allows for modal to be programmatically toggled
+    const modalButton = useRef();
+    const toggleModal = () => {
+        modalButton.current.click();
+    }
+
     // Post information
     const posts = usePosts();
     // Every user that correlate to the posts
@@ -34,14 +40,12 @@ const Posts = postID => {
     return (
         <main>
             <h1>Posts</h1>
-            <button
-                className="btn btn-primary my-2"
+            <i
+                ref={modalButton} className="fas fa-plus-circle fa-3x text-primary"
                 data-toggle="modal" data-target="#createPostModal"
+                style={{ position: "fixed", right: "2%", bottom: "2%", cursor: "pointer" }}
             >
-                <i
-                    className="fas fa-plus-circle fa-2x"
-                ></i>
-            </button>
+            </i>
             <section className="posts w-50 mx-auto">
                 {posts.length > 0 && posts.map(post =>
                     <PostPreview
@@ -51,7 +55,7 @@ const Posts = postID => {
                 )}
             </section>
             <PostModal post={activePost}/>
-            <CreatePostModal/>
+            <CreatePostModal toggleModal={toggleModal}/>
         </main>
     );
 };

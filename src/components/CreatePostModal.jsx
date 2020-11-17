@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 import { firestore, firebase } from "../config/firebase";
 import React, { useEffect, useState, useContext } from "react";
 
-const CreatePostModal = () => {
+const CreatePostModal = ({ toggleModal }) => {
     // State for form fields
     const [ title, setTitle ] = useState("");
     const [ files, setFiles ] = useState([]);
@@ -39,23 +39,21 @@ const CreatePostModal = () => {
     };
 
     const resetModal = () => {
-        setState("SELECT");
-        setFiles([]);
-        setProgress(0);
-        setDescription("");
         setIsAnonymous(false);
-        setTitle("");
+        setState("SELECT");
+        setDescription("");
         setSelected([]);
+        setProgress(0);
+        setFiles([]);
+        setTitle("");
     }
 
     // Set how far the uploading has progressed
     useEffect(() => {
-        if (progresses.length > 0) {
+        if (progresses.length > 0 && files.length > 0) {
             setProgress(progresses.reduce(
                 (total, value) => { return total + value / files.length }, 0)
             );
-        } else {
-            setProgress(0);
         }
     }, [ files, progresses ]);
 
@@ -77,14 +75,18 @@ const CreatePostModal = () => {
 
         if (state === "FINISH") {
             createPost();
+            toggleModal();
             resetModal();
         }
-    }, [ state, urls, user, history, title, description, isAnonymous ]);
+    }, [ state, urls, user, history, title, description, isAnonymous, toggleModal ]);
 
     // Handle when an upload finishes
     useEffect(() => {
         // urls.length === files.length doesn't work
-        if (progress >= 100 && urls.reduce(total => { return total + 1 }, 0) === files.length) {
+        if (
+            progress >= 100 &&
+            urls.reduce(total => { return total + 1 }, 0) === files.length
+        ) {
             setState("FINISH");
         }
 

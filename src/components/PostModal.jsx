@@ -15,7 +15,10 @@ const PostModal = ({ post }) => {
                         <img
                             src={post.images[pictureIndex]} alt=""
                             className="card-img-top rounded"
-                            style={{ maxHeight: "75vh", width: "auto", height: "auto", maxWidth: "100%" }}
+                            style={{
+                                maxHeight: "75vh", maxWidth: "100%",
+                                width: "auto", height: "auto"
+                            }}
                         />
                         <p>
                             {post.description}
