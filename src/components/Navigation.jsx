@@ -11,10 +11,11 @@ const Navigation = () => {
     const rootPath = useLocation().pathname.split("/")[1];
 
     return (
-        <nav className="navbar navbar-expand-lg navbar-dark bg-success">
+        <nav className="navbar navbar-expand-lg navbar-dark bg-secondary">
             <Link className="navbar-brand" to="/">
-                <span>Gogo Recycling </span>
-                <i className="fas fa-recycle"></i>
+                <h3 style={{ color: "#00FF1A" }}>
+                    Gogo Recycling <i className="fas fa-recycle"></i>
+                </h3>
             </Link>
             <button
                 className="navbar-toggler" type="button" data-toggle="collapse"
@@ -28,11 +29,6 @@ const Navigation = () => {
                     <li className={"nav-item " + (rootPath === "" ? "active" : "")}>
                         <Link className="nav-link" to="/">
                             Home
-                        </Link>
-                    </li>
-                    <li className={"nav-item " + (rootPath === "create" ? "active" : "")}>
-                        <Link className="nav-link" to="/create">
-                            Create
                         </Link>
                     </li>
                     <li className={"nav-item " + (rootPath === "posts" ? "active" : "")}>

@@ -32,6 +32,10 @@ const useStorage = files => {
                         });
                     });
             }
+        } else {
+            setError(null);
+            setProgresses([]);
+            setUrls([]);
         }
     }, [ files ]);
 

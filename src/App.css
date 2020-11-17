@@ -7,22 +7,73 @@
     min-height: 100vh;
 }
 
-.App-logo {
-    height: 40vmin;
-    pointer-events: none;
+body {
+    background-color: #F5F5F5
 }
 
-@media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-        animation: App-logo-spin infinite 20s linear;
-    }
+.nav-link {
+    font-size: 1.25rem;
 }
 
-@keyframes App-logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+/* banner */
+#banner {
+    color: white;
+    background-image: url("../src/resources/home-banner/soda-cans.jpg");
+    background-repeat: inherit;
+    background-size: 100%;
+    min-height: 125px;
+    text-shadow: black 0.15em 0.15em 0.2em;
+}
+
+/* button for recyclig guide */
+.btn-effect {
+    margin: 20px;
+    padding: 10px 10px;
+    background-image: linear-gradient(45deg, darkorange 50%, transparent 50%);
+    background-position: 100%;
+    background-size: 400%;
+    -webkit-transition: background 300ms ease-in-out;
+    transition: background 300ms ease-in-out;
+  }
+
+.btn-effect:hover {
+    background-position: 0;
+}
+
+/* Blockquote main style */
+blockquote {
+    position: relative;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    /* color: light-blue; */
+    padding: 35px 0;
+    width: 100%;
+    /* max-width: 500px; */
+    z-index: 1;
+    margin: 20px auto;
+    /* align-self: center; */
+    border-top: solid 1px;
+    border-bottom: solid 1px;
+}
+
+/* Blockquote header */
+blockquote h2 {
+    position: relative;
+    color: black;
+    font-size: 40px;
+    font-weight: 800;
+    line-height: 1;
+    margin: 0;
+}
+
+ /* Blockquote subheader */
+blockquote h4 {
+    position: relative;
+    color: #292a2b;
+    font-size: 1.4rem;
+    font-weight: normal;
+    line-height: 1;
+    margin: 0;
+    padding-top: 20px;
+    z-index: 1;
 }

@@ -8,7 +8,6 @@ import Posts from "./components/Posts";
 import NotFound from "./components/NotFound";
 import Copyright from "./components/Copyright";
 import Navigation from "./components/Navigation";
-import CreatePost from "./components/CreatePost";
 
 const App = () => {
     return (
@@ -19,7 +18,6 @@ const App = () => {
                     <Switch>
                         <Route exact path="/" component={Home}/>
                         <Route exact path="/posts" component={Posts}/>
-                        <Route exact path="/create" component={CreatePost}/>
                         <Route component={NotFound}/>
                     </Switch>
                 </Router>
