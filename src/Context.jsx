@@ -57,6 +57,7 @@ const ContextProvider = props => {
                 userRef.update({ points: newPoints });
             }
         }
+
         updatePoints();
     }, [ user ]);
 
