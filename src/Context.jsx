@@ -19,6 +19,7 @@ const ContextProvider = props => {
                     email: localUserData.email,
                     timeCreated: firebase.firestore.FieldValue.serverTimestamp(),
                     admin: false,
+                    points: 0,
                 });
 
                 unsubscribe = userRef.onSnapshot(snapshot => {
@@ -36,6 +37,28 @@ const ContextProvider = props => {
 
         return unsubscribe;
     }, []);
+
+    useEffect(() => {
+        const updatePoints = async () => {
+            if (user) {
+                console.log(user);
+                const userRef = firestore.collection("users").doc(user.local.uid);
+                const snapshot = await firestore.collection("posts")
+                    .where("user", "==", userRef).get();
+
+                let newPoints = 0;
+                if (!snapshot.empty) {
+                    snapshot.forEach(post => {
+                        post = post.data();
+                        newPoints += post.likes.length + 1;
+                    });
+                }
+
+                userRef.update({ points: newPoints });
+            }
+        }
+        updatePoints();
+    }, [ user ]);
 
     return <Context.Provider value={{user}}>
         {props.children}
