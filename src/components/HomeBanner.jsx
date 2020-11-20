@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 
-import mask from '../resources/home-banner/masks.jpg';
 import recyclePromo from '../resources/home-banner/recycle-promo.jpg';
 import cycleEconomy from "../resources/home-banner/cycle-economy.png";
 

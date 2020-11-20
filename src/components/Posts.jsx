@@ -1,14 +1,15 @@
 
-import React from "react";
-import { useState, useEffect, useRef } from "react";
+import { firestore, firebase } from "../config/firebase";
+import React, { useState, useEffect, useRef, useContext } from "react";
 
+import { Context } from "../Context";
 import usePosts from "../hooks/usePosts";
 
 import PostModal from "./PostModal";
 import PostPreview from "./PostPreview";
 import CreatePostModal from "./CreatePostModal";
 
-const Posts = postID => {
+const Posts = () => {
     // Allows for modal to be programmatically toggled
     const modalButton = useRef();
     const toggleModal = () => {
@@ -22,6 +23,20 @@ const Posts = postID => {
 
     // Contains information about the current selected post
     const [activePost, setActivePost] = useState();
+
+    const { user } = useContext(Context);
+    // Toggle a like given the mode
+    // mode (String) ["like", "dislike"]: Determines what action is taken
+    // post (Post): Information on the post wanting to be liked (Must contain id)
+    const toggleLike = async (mode, post) => {
+        const userRef = firestore.collection("users").doc(user.local.uid);
+        const postRef = firestore.collection("posts").doc(post.id);
+        await postRef.update({
+            likes: mode === "like" ?
+                firebase.firestore.FieldValue.arrayUnion(userRef) :
+                firebase.firestore.FieldValue.arrayRemove(userRef)
+        });
+    };
 
     // Retrieve users that correspond with the posts
     useEffect(() => {
@@ -43,14 +58,25 @@ const Posts = postID => {
             <i
                 ref={modalButton} className="fas fa-plus-circle fa-3x"
                 data-toggle="modal" data-target="#createPostModal"
-                style={{ position: "fixed", right: "2%", bottom: "2%", cursor: "pointer" }}
+                style={{
+                    position: "fixed", right: "2%", bottom: "2%", cursor: "pointer", zIndex: 99
+                }}
             >
             </i>
-            <section className="posts w-50 mx-auto">
+            <section className="posts container mx-auto">
                 {posts.length > 0 && posts.map(post =>
                     <PostPreview
                         key={post.id} post={post}
                         users={users} setActivePost={setActivePost}
+                        toggleLike={toggleLike} loggedIn={!!user}
+                        isLiked={function () {
+                            for (let like of post.likes) {
+                                if (user && user.local.uid === like.id) {
+                                    return true;
+                                }
+                            }
+                            return false;
+                        }()}
                     />
                 )}
             </section>

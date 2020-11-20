@@ -38,9 +38,6 @@ const Navigation = () => {
                                 <li className={"nav-item " + (rootPath === "posts" ? "active" : "")}>
                                     <Link className="nav-link" to="/posts">COMMUNITY POSTS</Link>
                                 </li>
-                                {/* <li className={"nav-item " + (rootPath === "test" ? "active" : "")}>
-                                        <Link className="nav-link" to="/test">TEST</Link
-                                    </li> */}
                             </ul>
                             <div className="nav-item active">
                                 <button

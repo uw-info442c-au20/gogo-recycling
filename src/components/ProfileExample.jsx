@@ -25,13 +25,13 @@ const ProfileExample = () => {
                 <div className="container">
                     <div className="row">
                         <div className="col-sm">
-                            <img src={manRecycling} />
+                            <img src={manRecycling} alt="man recycling"/>
                         </div>
                         <div className="col-sm">
-                            <img src={manRecycling} />
+                            <img src={manRecycling} alt="man recycling"/>
                         </div>
                         <div className="col-sm">
-                            <img src={manRecycling} />
+                            <img src={manRecycling} alt="man recycling"/>
                         </div>
                     </div>
                 </div>

@@ -13,6 +13,7 @@ const ProfileModal = ({ user }) => {
                         <h3 className="modal-title mx-auto">Hello {user.displayName}</h3>
                     </div>
                     <div className="modal-body">
+                        <h6>You have {user.points} points</h6>
                         <button
                             className="btn btn-info mb-2"
                             onClick={() => history.push(`/profile/${user.local.uid}`)}

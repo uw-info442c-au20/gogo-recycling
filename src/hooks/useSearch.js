@@ -33,20 +33,19 @@ const useSearch = options => {
                 }
 
                 if (options.zip) {
-                    queries.add("$zip", options.zip);
+                    queries.add("zip", options.zip);
                 }
             }
 
             let data = await fetch(apiEndpoint + queries.queryString);
             data = await data.json();
-            console.log(data);
             setLocations(data);
         }
 
         updateSearch();
     }, [ options ]);
 
-    return locations;
+    return { locations };
 };
 
 export default useSearch;
