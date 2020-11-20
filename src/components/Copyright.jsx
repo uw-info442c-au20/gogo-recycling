@@ -5,17 +5,14 @@ const Copyright = () => {
         <footer className="mt-5 pb-2 font-weight-light">
             <em>Copyright or something</em>
             <div>
-                Icons and vector made by Freepik from
-                <a
+                Icons and vector made by Freepik from <a
                     href="https://www.flaticon.com/authors/freepik"
                     target="_blank" title="Flaticon" rel="noreferrer"
-                >
-                    www.flaticon.com
-                </a>
-                and
-                <a href='https://www.freepik.com' target="_blank" title="Freepik" rel="noreferrer">
-                    www.freepik.com
-                </a>
+                > www.flaticon.com</a> and
+                <a
+                    href='https://www.freepik.com' target="_blank"
+                    title="Freepik" rel="noreferrer"
+                > www.freepik.com</a>
             </div>
         </footer>
     );
