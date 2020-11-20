@@ -1,11 +1,12 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const PostPreview = ({post, users, setActivePost, toggleLike, loggedIn, isLiked}) => {
     const [ pictureIndex, setPictureIndex ] = useState(0);
 
     return (
         <div
-            className="card bg-success text-white mb-3 p-4"
+            className="card mb-4 pb-4"
             onClick={() => setActivePost(post)}
         >
             <div>
@@ -15,7 +16,10 @@ const PostPreview = ({post, users, setActivePost, toggleLike, loggedIn, isLiked}
                 <i
                     className="fas fa-arrow-alt-circle-left text-white shadow
                         position-absolute my-auto rounded-circle"
-                    style={{ fontSize: "3vh", top: "50%", left: "50px" }}
+                    style={{
+                        fontSize: "3vh", top: "50%", left: "3%",
+                        backgroundImage: "radial-gradient(at center, black 40%, transparent 40%)"
+                    }}
                     onClick={() => {
                         setPictureIndex(
                             (post.images.length + pictureIndex - 1) % post.images.length
@@ -34,7 +38,10 @@ const PostPreview = ({post, users, setActivePost, toggleLike, loggedIn, isLiked}
                 <i
                     className="fas fa-arrow-alt-circle-right text-white shadow
                         position-absolute rounded-circle"
-                    style={{ fontSize: "3vh", top: "50%", right: "50px" }}
+                    style={{
+                        fontSize: "3vh", top: "50%", right: "3%",
+                        backgroundImage: "radial-gradient(at center, black 40%, transparent 40%)"
+                    }}
                     onClick={() => {
                         setPictureIndex((pictureIndex + 1) % post.images.length);
                     }}
@@ -53,18 +60,21 @@ const PostPreview = ({post, users, setActivePost, toggleLike, loggedIn, isLiked}
                             {post.title}
                         </h4>
                         <h6>
-                            By {
-                                post.isAnonymous ? "Anonymous" : (
-                                    users[post.user.id] ?
-                                    users[post.user.id].displayName :
-                                    <em>Unknown</em>
-                                )
-                            }
+                            <Link className="highlight" to="/profile-ex">
+                                By {
+                                    post.isAnonymous ? "Anonymous" : (
+                                        users[post.user.id] ?
+                                            users[post.user.id].displayName :
+                                            <em>Unknown</em>
+                                    )
+                                }
+                            </Link>
                         </h6>
+
                         {post.images && post.images.length > 1 &&
-                        <p className="mb-0">
-                            Image {pictureIndex + 1}/{post.images.length}
-                        </p>}
+                            <p className="mb-0">
+                                Image {pictureIndex + 1}/{post.images.length}
+                            </p>}
                         <p className="mb-0">
                             Description: {post.description}
                         </p>

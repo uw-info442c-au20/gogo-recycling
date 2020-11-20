@@ -1,16 +1,15 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 
-import mask from '../resources/home-banner/masks.jpg';
 import recyclePromo from '../resources/home-banner/recycle-promo.jpg';
 import cycleEconomy from "../resources/home-banner/cycle-economy.png";
 
 export default function CenteredGrid() {
     return (
         <main>
-            <h1 id="banner" className="display-1 font-weight-bold">Who We Are</h1>
+            {/* <h1 id="banner" className="display-1 font-weight-bold">Who We Are</h1> */}
             <div className="container-lg">
-                <div className="row">
+                {/* <div className="row">
                     <div className="m-auto shadow my-4" style={{ minWidth: "250px" }}>
                         <div>
                             <img style={{ width: "100%" }} src={mask} alt="masks covering the land of Switzerland"/>
@@ -28,7 +27,7 @@ export default function CenteredGrid() {
                             line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
                         </p>
                     </div>
-                </div>
+                </div> */}
                 <div className="row">
                     <div className="col shadow my-4">
                         {/* inspiring quote emphasizing buyers impact the movement of business */}
@@ -44,7 +43,7 @@ export default function CenteredGrid() {
                     <div className="col my-4">
                         <div className="shadow p-4">
                             <h2>First Step: Proper Recycling</h2>
-                            <img style={{ minWidth: "250px", width: "85%" }} id="stat2" src={recyclePromo} alt="People advertising proper recycling"/>
+                            <img style={{ minWidth: "250px", width: "85%" }} id="stat2" src={recyclePromo} alt="People advertising proper recycling" />
                             <p className="px-3">
                                 TALK ABOUT IMPORTANCE ABOUT RECYCLING
                                 Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin
@@ -66,7 +65,7 @@ export default function CenteredGrid() {
                     <div className="col my-4">
                         <div className="shadow p-4">
                             <h2>Beyond Recycling</h2>
-                            <img style={{ minWidth: "250px", width: "85%" }} id="stat3" src={cycleEconomy} alt="Circular Economy"/>
+                            <img style={{ minWidth: "250px", width: "85%" }} id="stat3" src={cycleEconomy} alt="Circular Economy" />
                             <p className="px-3">
                                 INTRODUCE BUSINESS THAT PRACTICE CIRCULAR ECONOMY
                                 Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature

@@ -1,3 +1,4 @@
+/* General Styles */
 * {
     box-sizing: border-box;
 }
@@ -8,14 +9,117 @@
 }
 
 body {
-    background-color: #F5F5F5
+    background-color: white;
+    color: #363837;
 }
 
-.nav-link {
-    font-size: 1.25rem;
+main {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-/* banner */
+h1 {
+    font-size: 2rem;
+    font-weight: 400;
+}
+
+a:hover {
+    color: #72bd6b;
+}
+
+.highlight {
+    color: #72bd6b;
+    text-decoration: underline;
+}
+
+/* Buttons */
+.btn {
+    border-radius: 20px;
+    padding: .3rem 1rem;
+}
+
+.btn-styled {
+    color: white;
+    background-color: #72bd6b;
+}
+
+.btn:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+/* Navigation */
+.nav-bg {
+    background: white !important;
+}
+
+nav {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-brand h3 {
+    color: #72bd6b;
+    font-size: 1.5rem;
+}
+
+.navbar-brand img {
+    width: auto;
+    height: 25px;
+}
+
+nav a,
+nav button {
+    letter-spacing: 1px;
+}
+
+a.nav-link:hover {
+    text-decoration: underline;
+}
+
+li.nav-item {
+    font-size: 1rem;
+    margin-right: 1.5rem;
+}
+
+.navbar-light .navbar-nav .active>.nav-link {
+    color: #72bd6b;
+}
+
+div .sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28);
+}
+
+/* Modal */
+.modal-backdrop {
+    position: unset !important;
+}
+
+.modal-content {
+    box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.12);
+    padding: 1rem;
+}
+
+/* Footer */
+footer div {
+    font-size: .7rem;
+}
+
+footer a {
+    color: #72bd6b;
+}
+
+/* Banner */
 #banner {
     color: white;
     background-image: url("../src/resources/home-banner/soda-cans.jpg");
@@ -25,7 +129,7 @@ body {
     text-shadow: black 0.15em 0.15em 0.2em;
 }
 
-/* button for recyclig guide */
+/* Button for Recycling Guide */
 .btn-effect {
     margin: 20px;
     padding: 10px 10px;
@@ -34,13 +138,13 @@ body {
     background-size: 400%;
     -webkit-transition: background 300ms ease-in-out;
     transition: background 300ms ease-in-out;
-  }
+}
 
 .btn-effect:hover {
     background-position: 0;
 }
 
-/* Blockquote main style */
+/* Blockquote Main Style */
 blockquote {
     position: relative;
     font-family: 'Montserrat', sans-serif;
@@ -49,31 +153,208 @@ blockquote {
     padding: 35px 0;
     width: 100%;
     /* max-width: 500px; */
-    z-index: 1;
+    /* z-index: 1; */
     margin: 20px auto;
     /* align-self: center; */
     border-top: solid 1px;
     border-bottom: solid 1px;
 }
 
-/* Blockquote header */
+/* Blockquote Header */
 blockquote h2 {
     position: relative;
-    color: black;
+    color: #363837;
     font-size: 40px;
     font-weight: 800;
     line-height: 1;
     margin: 0;
 }
 
- /* Blockquote subheader */
+/* Blockquote Subheader */
 blockquote h4 {
     position: relative;
-    color: #292a2b;
+    color: #363636;
     font-size: 1.4rem;
     font-weight: normal;
     line-height: 1;
     margin: 0;
     padding-top: 20px;
-    z-index: 1;
+    /* z-index: 1; */
+}
+
+/* Home Page */
+#landing-page {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+#home {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#home-caption {
+    width: 40%;
+    text-align: left;
+}
+
+#home-img {
+    width: 50%;
+}
+
+#home-img img {
+    width: 100%;
+}
+
+/* Posts */
+.card {
+    box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.12);
+    border-radius: 15px;
+}
+
+.card img {
+    cursor: pointer;
+}
+
+.row {
+    flex-wrap: nowrap;
+}
+
+.card-body a {
+    display: inline;
+}
+
+.carousel-control-next-icon,
+.carousel-control-prev-icon {
+    filter: invert(100%);
+}
+
+i.fas.fa-plus-circle.fa-3x {
+    color: #72bd6b;
+}
+
+/* Recycle Guide */
+.search {
+    background-color: white;
+    box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.12);
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 0.4em;
+    font-size: 1.5rem;
+}
+
+input.input-item {
+    color: #72bd6b;
+    border: none;
+    border-bottom: 0.1rem solid #e5e5e5;
+}
+
+input:focus {
+    outline: none !important;
+}
+
+.search img {
+    display: inline;
+    width: auto;
+    height: 1em;
+}
+
+.results {
+    width: 50%;
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.results h1 {
+    color: #72bd6b;
+}
+
+.recycle-result {
+    box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.12);
+    display: flex;
+    justify-content: space-between;
+}
+
+.recycle-result h2 {
+    color: #72bd6b;
+    font-weight: 400;
+    font-size: 1rem;
+}
+
+.recycle-result p,
+.recycle-result a {
+    opacity: .5;
+    font-size: .8rem;
+    color: #363837;
+}
+
+#info-2 {
+    text-align: right;
+}
+
+/* Profile Page */
+.profile-info {
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.profile-img img {
+    width: auto;
+    height: 5rem;
+}
+
+.profile-img {
+    margin-left: auto;
+}
+
+.profile-img p {
+    font-size: .8rem;
+    opacity: .8;
+}
+
+.profile-text {
+    text-align: left;
+    margin-right: auto;
+}
+
+.profile-text h1 {
+    font-weight: 300;
+    font-size: 1.7rem;
+}
+
+.profile-text2 {
+    display: flex;
+    align-items: center;
+}
+
+.profile-text2 img {
+    width: auto;
+    height: 1rem;
+}
+
+.profile-text2 .btn {
+    border-radius: 3px;
+    border-style: solid;
+    border-color: rgba(var(--b6a, 219, 219, 219), 1);
+}
+
+.post-amount {
+    font-weight: bold;
+}
+
+.profile-posts {
+    border-top: 1px solid rgba(var(--b38, 219, 219, 219), 1);
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.profile-posts img {
+    width: 100%;
 }
