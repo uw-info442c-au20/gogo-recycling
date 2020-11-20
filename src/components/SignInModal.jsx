@@ -25,7 +25,7 @@ const SignInModal = () => {
             <div className="modal-dialog modal-dialog-centered">
                 <div className="modal-content">
                     <div className="modal-header">
-                        <h3 className="modal-title mx-auto">Sign In</h3>
+                        <h1 className="modal-title mx-auto">Sign In</h1>
                     </div>
                     <div className="modal-body">
                         <button

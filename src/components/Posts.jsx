@@ -18,10 +18,10 @@ const Posts = postID => {
     // Post information
     const posts = usePosts();
     // Every user that correlate to the posts
-    const [ users, setUsers ] = useState({});
+    const [users, setUsers] = useState({});
 
     // Contains information about the current selected post
-    const [ activePost, setActivePost ] = useState();
+    const [activePost, setActivePost] = useState();
 
     // Retrieve users that correspond with the posts
     useEffect(() => {
@@ -35,13 +35,13 @@ const Posts = postID => {
         };
 
         getUsers();
-    }, [ posts ]);
+    }, [posts]);
 
     return (
         <main>
-            <h1>Posts</h1>
+            <h1 className="p-4">Posts</h1>
             <i
-                ref={modalButton} className="fas fa-plus-circle fa-3x text-primary"
+                ref={modalButton} className="fas fa-plus-circle fa-3x"
                 data-toggle="modal" data-target="#createPostModal"
                 style={{ position: "fixed", right: "2%", bottom: "2%", cursor: "pointer" }}
             >
@@ -54,8 +54,8 @@ const Posts = postID => {
                     />
                 )}
             </section>
-            <PostModal post={activePost}/>
-            <CreatePostModal toggleModal={toggleModal}/>
+            <PostModal post={activePost} />
+            <CreatePostModal toggleModal={toggleModal} />
         </main>
     );
 };

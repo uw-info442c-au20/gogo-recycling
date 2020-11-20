@@ -8,6 +8,8 @@ import Posts from "./components/Posts";
 import NotFound from "./components/NotFound";
 import Copyright from "./components/Copyright";
 import Navigation from "./components/Navigation";
+import RecycleGuide from "./components/RecycleGuide";
+import ProfileExample from "./components/ProfileExample";
 
 const App = () => {
     return (
@@ -18,6 +20,8 @@ const App = () => {
                     <Switch>
                         <Route exact path="/" component={Home}/>
                         <Route exact path="/posts" component={Posts}/>
+                        <Route exact path="/recycle-guide" component={RecycleGuide}/>
+                        <Route exact path="/profile-ex" component={ProfileExample}/>
                         <Route component={NotFound}/>
                     </Switch>
                 </Router>
