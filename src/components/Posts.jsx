@@ -63,7 +63,7 @@ const Posts = () => {
                 }}
             >
             </i>
-            <section className="posts container mx-auto">
+            <section className="posts container mx-auto" style={{ maxWidth: "600px" }}>
                 {posts.length > 0 && posts.map(post =>
                     <PostPreview
                         key={post.id} post={post}
