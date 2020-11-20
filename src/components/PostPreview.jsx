@@ -16,7 +16,10 @@ const PostPreview = ({post, users, setActivePost, toggleLike, loggedIn, isLiked}
                 <i
                     className="fas fa-arrow-alt-circle-left text-white shadow
                         position-absolute my-auto rounded-circle"
-                    style={{ fontSize: "3vh", top: "50%", left: "50px" }}
+                    style={{
+                        fontSize: "3vh", top: "50%", left: "3%",
+                        backgroundImage: "radial-gradient(at center, black 40%, transparent 40%)"
+                    }}
                     onClick={() => {
                         setPictureIndex(
                             (post.images.length + pictureIndex - 1) % post.images.length
@@ -35,7 +38,10 @@ const PostPreview = ({post, users, setActivePost, toggleLike, loggedIn, isLiked}
                 <i
                     className="fas fa-arrow-alt-circle-right text-white shadow
                         position-absolute rounded-circle"
-                    style={{ fontSize: "3vh", top: "50%", right: "50px" }}
+                    style={{
+                        fontSize: "3vh", top: "50%", right: "3%",
+                        backgroundImage: "radial-gradient(at center, black 40%, transparent 40%)"
+                    }}
                     onClick={() => {
                         setPictureIndex((pictureIndex + 1) % post.images.length);
                     }}
