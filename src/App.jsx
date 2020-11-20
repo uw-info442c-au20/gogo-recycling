@@ -4,6 +4,7 @@ import { ContextProvider } from "./Context";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Home from "./components/Home";
+import Find from "./components/Find";
 import Posts from "./components/Posts";
 import NotFound from "./components/NotFound";
 import Copyright from "./components/Copyright";
@@ -18,6 +19,7 @@ const App = () => {
                     <Switch>
                         <Route exact path="/" component={Home}/>
                         <Route exact path="/posts" component={Posts}/>
+                        <Route exact path="/find" component={Find}/>
                         <Route component={NotFound}/>
                     </Switch>
                 </Router>
