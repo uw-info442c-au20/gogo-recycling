@@ -36,10 +36,12 @@ const RecycleGuide = () => {
             </div>
             <div className="results p-5">
                 <h1 className="pb-2">Recycling Locations</h1>
-                {locations.length > 0 ? locations.map(location => {
-                    const { provider_name, provider_address, provider_url, phone } = location;
+                {locations.length > 0 ? locations.map((location, index) => {
+                    const {
+                        provider_name, provider_address, provider_url, phone, providerid
+                    } = location;
                     return (
-                        <div className="recycle-result p-3">
+                        <div className="recycle-result p-3" key={`${providerid} - ${index}`}>
                             <div id="info-1">
                                 <h2>{provider_name}</h2>
                                 <a
