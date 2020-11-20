@@ -42,7 +42,10 @@ const RecycleGuide = () => {
                         <div className="recycle-result p-3">
                             <div id="info-1">
                                 <h2>{provider_name}</h2>
-                                <a href={provider_url ? provider_url.url : ""}>
+                                <a
+                                    href={provider_url ? provider_url.url : ""}
+                                    target="_blank" rel="noreferrer"
+                                >
                                     {provider_url ? provider_url.url : "No Url :("}
                                     <span role="img" aria-label="up-right arrow"> ↗</span>
                                 </a>
