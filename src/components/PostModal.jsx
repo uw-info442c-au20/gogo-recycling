@@ -92,7 +92,7 @@ const PostModal = ({ post, users, sendComment, loggedIn }) => {
                                 );
                             })}
                         </div>
-                        {loggedIn &&
+                        {!loggedIn &&
                         <div className="input-group mx-auto" style={{ maxWidth: "500px" }}>
                             <input
                                 type="text" placeholder="Comment" className="form-control"
