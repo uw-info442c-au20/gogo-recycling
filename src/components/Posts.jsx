@@ -38,8 +38,25 @@ const Posts = () => {
         });
     };
 
+    // Toggle a like given the mode
+    // mode (String) ["like", "dislike"]: Determines what action is taken
+    // post (Post): Information on the post wanting to be liked (Must contain id)
+    const sendComment = async (post, comment) => {
+        const userRef = firestore.collection("users").doc(user.local.uid);
+        const postRef = firestore.collection("posts").doc(post.id);
+        await postRef.update({
+            comments: firebase.firestore.FieldValue.arrayUnion({
+                user: userRef, comment: comment
+            })
+        });
+    };
+
     // Retrieve users that correspond with the posts
     useEffect(() => {
+        const updateActivePost = async () => {
+            setActivePost(posts.filter(post => post.id === activePost.id)[0] || null);
+        };
+
         const getUsers = async () => {
             const newUsers = {};
             for (let post of posts) {
@@ -49,8 +66,9 @@ const Posts = () => {
             setUsers(newUsers);
         };
 
+        activePost && updateActivePost();
         getUsers();
-    }, [ posts ]);
+    }, [ activePost, posts ]);
 
     return (
         <main>
@@ -80,7 +98,7 @@ const Posts = () => {
                     />
                 )}
             </section>
-            <PostModal post={activePost} users={users}/>
+            <PostModal post={activePost} users={users} sendComment={sendComment}/>
             <CreatePostModal toggleModal={toggleModal}/>
         </main>
     );

@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 
-const PostModal = ({ post, users }) => {
-    const [ pictureIndex, setPictureIndex ] = useState(0);
+const PostModal = ({ post, users, sendComment, loggedIn }) => {
+    const [ comment, setComment ] = useState("");
     const [ commenters, setCommenters ] = useState({});
+    const [ pictureIndex, setPictureIndex ] = useState(0);
 
     useEffect(() => {
         const getCommenters = async postID => {
@@ -78,7 +79,7 @@ const PostModal = ({ post, users }) => {
                         </p>
                         <hr/>
                         <h3>Comments</h3>
-                        <div className="comments">
+                        <div className="comments mb-2">
                             {post.comments.map((comment, index) => {
                                 return (
                                     <div className="comment" key={index}>
@@ -91,6 +92,27 @@ const PostModal = ({ post, users }) => {
                                 );
                             })}
                         </div>
+                        {loggedIn &&
+                        <div className="input-group mx-auto" style={{ maxWidth: "500px" }}>
+                            <input
+                                type="text" placeholder="Comment" className="form-control"
+                                style={{ borderRadius: "20px 0 0 20px" }}
+                                value={comment} onChange={event => setComment(event.target.value)}
+                            />
+                            <div className="input-group-append">
+                                <div
+                                    className="btn btn-outline-primary"
+                                    onClick={() => {
+                                        if (comment.length > 0) {
+                                            sendComment(post, comment);
+                                            setComment("");
+                                        }
+                                    }}
+                                >
+                                    <i className="fas fa-paper-plane"/>
+                                </div>
+                            </div>
+                        </div>}
                     </div>
                 </div>}
             </div>
