@@ -52,7 +52,7 @@ const PostPreview = ({post, users, setActivePost, toggleLike, loggedIn, isLiked}
                     className="row" data-toggle="modal" data-target="#postModal"
                 >
                     <div
-                        className="card-body"
+                        className="card-body pb-2"
                     >
                         <h4 className="card-title mb-0">
                             {post.title}
@@ -68,7 +68,6 @@ const PostPreview = ({post, users, setActivePost, toggleLike, loggedIn, isLiked}
                             "By Anonymous"
                             }
                         </h6>
-
                         {post.images && post.images.length > 1 &&
                             <p className="mb-0">
                                 Image {pictureIndex + 1}/{post.images.length}
@@ -81,7 +80,7 @@ const PostPreview = ({post, users, setActivePost, toggleLike, loggedIn, isLiked}
                 </div>
                 {loggedIn && <div className="row">
                     <i
-                        className={`${isLiked ? "fas" : "far"} fa-heart mx-auto`}
+                        className={`${isLiked ? "fas" : "far"} fa-heart mx-auto text-danger`}
                         style={{ fontSize: "3vh" }}
                         onClick={event => toggleLike(isLiked ? "unlike" : "like", post)}
                     />

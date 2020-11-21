@@ -15,7 +15,7 @@ const ProfileModal = ({ user }) => {
                     <div className="modal-body">
                         <h6>You have {user.points} points</h6>
                         <button
-                            className="btn btn-info mb-2"
+                            className="btn btn-main mb-2"
                             onClick={() => history.push(`/profile/${user.local.uid}`)}
                             data-toggle="modal" data-target="#profileModal"
                         >

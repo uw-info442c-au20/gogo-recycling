@@ -44,7 +44,7 @@ const Navigation = () => {
                             </ul>
                             <div className="nav-item active">
                                 <button
-                                    className="btn btn-styled"
+                                    className="btn btn-main"
                                     data-toggle="modal" data-target={user ? "#profileModal" : "#signInModal"}
                                 >
                                     {user ? `Hi ${user.displayName}` : "SIGN IN"}

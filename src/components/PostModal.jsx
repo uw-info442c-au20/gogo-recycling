@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-const PostModal = ({ post, users, sendComment, loggedIn }) => {
+const PostModal = ({ post, users, sendComment, loggedIn, toggleLike, isLiked, toggleModal }) => {
     const [ comment, setComment ] = useState("");
     const [ commenters, setCommenters ] = useState({});
     const [ pictureIndex, setPictureIndex ] = useState(0);
@@ -24,7 +24,20 @@ const PostModal = ({ post, users, sendComment, loggedIn }) => {
                 {post &&
                 <div className="modal-content">
                     <div className="modal-header mx-auto">
-                        <h1>{post.title}</h1>
+                        <h1>
+                            {post.title}
+                            {loggedIn && <i
+                                className={`${isLiked ? "fas" : "far"} fa-heart text-danger pl-3`}
+                                onClick={event => toggleLike(isLiked ? "unlike" : "like", post)}
+                            />}
+                        </h1>
+                        <i
+                            className="fas fa-times-circle fa-lg text-danger"
+                            style={{
+                                position: "absolute", cursor: "pointer",
+                                right: "15px", top: "15px"
+                            }} onClick={toggleModal}
+                        />
                     </div>
                     <div className="modal-body">
                         {post.images && post.images.length > 1 &&
@@ -92,16 +105,19 @@ const PostModal = ({ post, users, sendComment, loggedIn }) => {
                                 );
                             })}
                         </div>
-                        {!loggedIn &&
-                        <div className="input-group mx-auto" style={{ maxWidth: "500px" }}>
+                        {loggedIn &&
+                        <form
+                            className="input-group mx-auto" style={{ maxWidth: "500px" }}
+                            onClick={event => event.preventDefault()}
+                        >
                             <input
                                 type="text" placeholder="Comment" className="form-control"
                                 style={{ borderRadius: "20px 0 0 20px" }}
                                 value={comment} onChange={event => setComment(event.target.value)}
                             />
                             <div className="input-group-append">
-                                <div
-                                    className="btn btn-outline-primary"
+                                <button
+                                    className="btn btn-outline-primary" type="submit"
                                     onClick={() => {
                                         if (comment.length > 0) {
                                             sendComment(post, comment);
@@ -109,10 +125,10 @@ const PostModal = ({ post, users, sendComment, loggedIn }) => {
                                         }
                                     }}
                                 >
-                                    <i className="fas fa-paper-plane"/>
-                                </div>
+                                    <i className="mr-1 fas fa-paper-plane"/>
+                                </button>
                             </div>
-                        </div>}
+                        </form>}
                     </div>
                 </div>}
             </div>

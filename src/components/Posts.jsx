@@ -10,10 +10,15 @@ import PostPreview from "./PostPreview";
 import CreatePostModal from "./CreatePostModal";
 
 const Posts = () => {
-    // Allows for modal to be programmatically toggled
-    const modalButton = useRef();
-    const toggleModal = () => {
-        modalButton.current.click();
+    // Allows for modals to be programmatically toggled
+    const createButton = useRef();
+    const toggleCreateModal = () => {
+        createButton.current.click();
+    }
+
+    const postModalButton = useRef();
+    const togglePostModal = () => {
+        postModalButton.current.click();
     }
 
     // Post information
@@ -74,7 +79,7 @@ const Posts = () => {
         <main>
             <h1 className="p-4">Posts</h1>
             <i
-                ref={modalButton} className="fas fa-plus-circle fa-3x"
+                ref={createButton} className="fas fa-plus-circle fa-3x"
                 data-toggle="modal" data-target="#createPostModal"
                 style={{
                     position: "fixed", right: "2%", bottom: "2%", cursor: "pointer", zIndex: 99
@@ -98,8 +103,23 @@ const Posts = () => {
                     />
                 )}
             </section>
-            <PostModal post={activePost} users={users} sendComment={sendComment}/>
-            <CreatePostModal toggleModal={toggleModal}/>
+            <PostModal
+                post={activePost} users={users} sendComment={sendComment}
+                loggedIn={!!user} toggleModal={togglePostModal} toggleLike={toggleLike}
+                isLiked={activePost ? function () {
+                    for (let like of activePost.likes) {
+                        if (user && user.local.uid === like.id) {
+                            return true;
+                        }
+                    }
+                    return false;
+                }() : false}
+            />
+            <CreatePostModal toggleModal={toggleCreateModal}/>
+            <button
+                className="d-none" ref={postModalButton}
+                data-toggle="modal" data-target="#postModal"
+            />
         </main>
     );
 };
