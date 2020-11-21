@@ -26,10 +26,6 @@ const PostModal = ({ post, users, sendComment, loggedIn, toggleLike, isLiked, to
                     <div className="modal-header mx-auto">
                         <h1>
                             {post.title}
-                            {loggedIn && <i
-                                className={`${isLiked ? "fas" : "far"} fa-heart text-danger pl-3`}
-                                onClick={event => toggleLike(isLiked ? "unlike" : "like", post)}
-                            />}
                         </h1>
                         <i
                             className="fas fa-times-circle fa-lg text-danger"
@@ -89,6 +85,13 @@ const PostModal = ({ post, users, sendComment, loggedIn, toggleLike, isLiked, to
                             </em>
                             <br/>
                             <strong>Description:</strong> {post.description}
+                            <br/>
+                            <div
+                                className={`btn mt-1 ${isLiked ? "btn-danger" : "btn-outline-danger"}`}
+                                onClick={() => loggedIn && toggleLike(isLiked ? "unlike" : "like", post)}
+                            >
+                                {post.likes.length} {post.likes.length === 1 ? "like" : "likes"}
+                            </div>
                         </p>
                         <hr/>
                         <h3>Comments</h3>
