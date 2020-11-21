@@ -19,10 +19,10 @@ const Posts = () => {
     // Post information
     const posts = usePosts();
     // Every user that correlate to the posts
-    const [users, setUsers] = useState({});
+    const [ users, setUsers ] = useState({});
 
     // Contains information about the current selected post
-    const [activePost, setActivePost] = useState();
+    const [ activePost, setActivePost ] = useState();
 
     const { user } = useContext(Context);
     // Toggle a like given the mode
@@ -50,7 +50,7 @@ const Posts = () => {
         };
 
         getUsers();
-    }, [posts]);
+    }, [ posts ]);
 
     return (
         <main>
@@ -80,8 +80,8 @@ const Posts = () => {
                     />
                 )}
             </section>
-            <PostModal post={activePost} />
-            <CreatePostModal toggleModal={toggleModal} />
+            <PostModal post={activePost} users={users}/>
+            <CreatePostModal toggleModal={toggleModal}/>
         </main>
     );
 };

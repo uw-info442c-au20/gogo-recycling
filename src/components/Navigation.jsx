@@ -18,7 +18,10 @@ const Navigation = () => {
                     <nav className="navbar navbar-expand-xl navbar-light p-0">
                         <Link className="navbar-brand" to="/">
                             <h3 className="mb-0">GOGO RECYCLING</h3>
-                            <img className="pl-2" src="https://www.flaticon.com/svg/static/icons/svg/3696/3696954.svg" alt="recycle symbol" />
+                            <img
+                                className="pl-2" alt="recycle symbol"
+                                src="https://www.flaticon.com/svg/static/icons/svg/3696/3696954.svg"
+                            />
                         </Link>
                         <button
                             className="navbar-toggler" type="button" data-toggle="collapse"

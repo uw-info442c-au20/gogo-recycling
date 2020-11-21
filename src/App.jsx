@@ -5,11 +5,11 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Home from "./components/Home";
 import Posts from "./components/Posts";
+import Profile from "./components/Profile";
 import NotFound from "./components/NotFound";
 import Copyright from "./components/Copyright";
 import Navigation from "./components/Navigation";
 import RecycleGuide from "./components/RecycleGuide";
-import ProfileExample from "./components/ProfileExample";
 
 const App = () => {
     return (
@@ -21,7 +21,7 @@ const App = () => {
                         <Route exact path="/" component={Home}/>
                         <Route exact path="/posts" component={Posts}/>
                         <Route exact path="/recycle-guide" component={RecycleGuide}/>
-                        <Route path="/profile" component={ProfileExample}/>
+                        <Route path="/profile" component={Profile}/>
                         <Route component={NotFound}/>
                     </Switch>
                 </Router>

@@ -1,7 +1,7 @@
 import React from "react";
 import manRecycling from '../resources/man-recycling.jpg';
 
-const ProfileExample = () => {
+const Profile = () => {
     return (
         <main>
             <div className="p-4 profile-info">
@@ -40,4 +40,4 @@ const ProfileExample = () => {
     );
 };
 
-export default ProfileExample;
+export default Profile;

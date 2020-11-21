@@ -11,43 +11,41 @@ const PostPreview = ({post, users, setActivePost, toggleLike, loggedIn, isLiked}
         >
             <div>
                 {post.images && post.images.length > 1 &&
-                // TODO: Find out why top: 50% doesn't vertically center
                 // TODO: Make the image navigation not jank
-                <i
-                    className="fas fa-arrow-alt-circle-left text-white shadow
-                        position-absolute my-auto rounded-circle"
-                    style={{
-                        fontSize: "3vh", top: "50%", left: "3%",
-                        backgroundImage: "radial-gradient(at center, black 40%, transparent 40%)"
-                    }}
-                    onClick={() => {
-                        setPictureIndex(
-                            (post.images.length + pictureIndex - 1) % post.images.length
-                        );
-                    }}
-                >
-                </i>
+                <>
+                    <i
+                        className="fas fa-arrow-alt-circle-left text-white shadow
+                            position-absolute my-auto rounded-circle"
+                        style={{
+                            fontSize: "3vh", top: "50%", left: "3%",
+                            backgroundImage: "radial-gradient(at center, black 40%, transparent 40%)"
+                        }}
+                        onClick={() => {
+                            setPictureIndex(
+                                (post.images.length + pictureIndex - 1) % post.images.length
+                            );
+                        }}
+                    >
+                    </i>
+                    <i
+                        className="fas fa-arrow-alt-circle-right text-white shadow
+                            position-absolute rounded-circle"
+                        style={{
+                            fontSize: "3vh", top: "50%", right: "3%",
+                            backgroundImage: "radial-gradient(at center, black 40%, transparent 40%)"
+                        }}
+                        onClick={() => {
+                            setPictureIndex((pictureIndex + 1) % post.images.length);
+                        }}
+                    >
+                    </i>
+                </>
                 }
                 <img
                     src={post.images[pictureIndex]} alt=""
                     className="card-img-top rounded"
                     data-toggle="modal" data-target="#postModal"
                 />
-                {post.images && post.images.length > 1 &&
-                // TODO: Find out why top: 50% doesn't vertically center
-                <i
-                    className="fas fa-arrow-alt-circle-right text-white shadow
-                        position-absolute rounded-circle"
-                    style={{
-                        fontSize: "3vh", top: "50%", right: "3%",
-                        backgroundImage: "radial-gradient(at center, black 40%, transparent 40%)"
-                    }}
-                    onClick={() => {
-                        setPictureIndex((pictureIndex + 1) % post.images.length);
-                    }}
-                >
-                </i>
-                }
             </div>
             <div className="container">
                 <div
@@ -60,15 +58,15 @@ const PostPreview = ({post, users, setActivePost, toggleLike, loggedIn, isLiked}
                             {post.title}
                         </h4>
                         <h6>
-                            <Link className="highlight" to="/profile-ex">
-                                By {
-                                    post.isAnonymous ? "Anonymous" : (
-                                        users[post.user.id] ?
-                                            users[post.user.id].displayName :
-                                            <em>Unknown</em>
-                                    )
-                                }
+                            {!post.isAnonymous ?
+                            <Link className="highlight" to={`/profile/${post.user.id}`}>
+                                By {users[post.user.id] ?
+                                    users[post.user.id].displayName :
+                                    <em>Unknown</em>}
                             </Link>
+                            :
+                            "By Anonymous"
+                            }
                         </h6>
 
                         {post.images && post.images.length > 1 &&
@@ -78,9 +76,6 @@ const PostPreview = ({post, users, setActivePost, toggleLike, loggedIn, isLiked}
                         <p className="mb-0">
                             Description: {post.description}
                         </p>
-                        <p className="mb-0"><em>
-                            {post.timeCreated && post.timeCreated.toDate().toLocaleString()}
-                        </em></p>
                         <p className="mb-0">{post.likes.length} like(s)</p>
                     </div>
                 </div>
