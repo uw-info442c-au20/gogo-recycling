@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const PostModal = ({ post, users, sendComment, loggedIn, toggleLike, isLiked, toggleModal }) => {
     const [ comment, setComment ] = useState("");
@@ -75,7 +76,7 @@ const PostModal = ({ post, users, sendComment, loggedIn, toggleLike, isLiked, to
                                 width: "auto", height: "auto"
                             }}
                         />
-                        <p>
+                        <p className="mb-2">
                             <em>
                                 By {post.isAnonymous ? "Anonymous" :
                                 (users[post.user.id] ?
@@ -86,24 +87,24 @@ const PostModal = ({ post, users, sendComment, loggedIn, toggleLike, isLiked, to
                             <br/>
                             <strong>Description:</strong> {post.description}
                             <br/>
-                            <div
-                                className={`btn mt-1 ${isLiked ? "btn-danger" : "btn-outline-danger"}`}
-                                onClick={() => loggedIn && toggleLike(isLiked ? "unlike" : "like", post)}
-                            >
-                                {post.likes.length} {post.likes.length === 1 ? "like" : "likes"}
-                            </div>
                         </p>
+                        <div
+                            className={`btn ${isLiked ? "btn-danger" : "btn-outline-danger"}`}
+                            onClick={() => loggedIn && toggleLike(isLiked ? "unlike" : "like", post)}
+                        >
+                            {post.likes.length} {post.likes.length === 1 ? "like" : "likes"}
+                        </div>
                         <hr/>
                         <h3>Comments</h3>
                         <div className="comments mb-2">
                             {post.comments.map((comment, index) => {
                                 return (
                                     <div className="comment" key={index}>
-                                        <strong>
+                                        <Link to={`/profile/${comment.user.id}`}><strong>
                                             {commenters[comment.user.id] ?
                                                 commenters[comment.user.id].displayName :
                                                 "Unknown"}
-                                        </strong>: {comment.comment}
+                                        </strong></Link>: {comment.comment}
                                     </div>
                                 );
                             })}

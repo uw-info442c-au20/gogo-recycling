@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { firestore } from "../config/firebase";
 
-const usePosts = options => {
+const usePosts = userID => {
     const [ posts, setPosts ] = useState([]);
 
     useEffect(() => {
@@ -9,14 +9,12 @@ const usePosts = options => {
         let query = firestore.collection("posts")
 
         // Logic for any filtering of the queries
-        if (options) {
-            if (options.userID) {
-                query = query.where(
-                    "user",
-                    "==",
-                    firestore.collection("users").doc(options.userID)
-                );
-            }
+        if (userID) {
+            query = query.where(
+                "user",
+                "==",
+                firestore.collection("users").doc(userID)
+            );
         }
 
         // Storing in unsubscribe to prevent a memory leak
@@ -32,7 +30,7 @@ const usePosts = options => {
             });
 
         return unsubscribe;
-    }, [ options ]);
+    }, [ userID ]);
 
     return posts;
 };
