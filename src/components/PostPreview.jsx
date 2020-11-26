@@ -1,13 +1,16 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-const PostPreview = ({post, users, setActivePost, toggleLike, loggedIn, isLiked}) => {
+const PostPreview = ({post, users, setActivePost, toggleLike, loggedIn, isLiked, toggleModal}) => {
     const [ pictureIndex, setPictureIndex ] = useState(0);
 
     return (
         <div
             className="card mb-4 pb-4"
-            onClick={() => setActivePost(post)}
+            onClick={() => {
+                setActivePost(post);
+                toggleModal();
+            }}
         >
             <div>
                 {post.images && post.images.length > 1 &&
@@ -17,10 +20,11 @@ const PostPreview = ({post, users, setActivePost, toggleLike, loggedIn, isLiked}
                         className="fas fa-arrow-alt-circle-left text-white shadow
                             position-absolute my-auto rounded-circle"
                         style={{
-                            fontSize: "3vh", top: "50%", left: "3%",
+                            fontSize: "3vh", top: "50%", left: "3%", cursor: "pointer",
                             backgroundImage: "radial-gradient(at center, black 40%, transparent 40%)"
                         }}
-                        onClick={() => {
+                        onClick={event => {
+                            event.stopPropagation();
                             setPictureIndex(
                                 (post.images.length + pictureIndex - 1) % post.images.length
                             );
@@ -31,10 +35,11 @@ const PostPreview = ({post, users, setActivePost, toggleLike, loggedIn, isLiked}
                         className="fas fa-arrow-alt-circle-right text-white shadow
                             position-absolute rounded-circle"
                         style={{
-                            fontSize: "3vh", top: "50%", right: "3%",
+                            fontSize: "3vh", top: "50%", right: "3%", cursor: "pointer",
                             backgroundImage: "radial-gradient(at center, black 40%, transparent 40%)"
                         }}
-                        onClick={() => {
+                        onClick={event => {
+                            event.stopPropagation();
                             setPictureIndex((pictureIndex + 1) % post.images.length);
                         }}
                     >
@@ -44,12 +49,11 @@ const PostPreview = ({post, users, setActivePost, toggleLike, loggedIn, isLiked}
                 <img
                     src={post.images[pictureIndex]} alt=""
                     className="card-img-top rounded"
-                    data-toggle="modal" data-target="#postModal"
                 />
             </div>
             <div className="container">
                 <div
-                    className="row" data-toggle="modal" data-target="#postModal"
+                    className="row" onClick={toggleModal}
                 >
                     <div
                         className="card-body pb-2"
@@ -59,7 +63,10 @@ const PostPreview = ({post, users, setActivePost, toggleLike, loggedIn, isLiked}
                         </h4>
                         <h6>
                             {!post.isAnonymous ?
-                            <Link className="highlight" to={`/profile/${post.user.id}`}>
+                            <Link
+                                className="no-modal highlight" to={`/profile/${post.user.id}`}
+                                onClick={event => event.stopPropagation()}
+                            >
                                 By {users[post.user.id] ?
                                     users[post.user.id].displayName :
                                     <em>Unknown</em>}

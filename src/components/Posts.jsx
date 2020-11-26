@@ -89,7 +89,7 @@ const Posts = () => {
             <section className="posts container mx-auto" style={{ maxWidth: "600px" }}>
                 {posts.length > 0 && posts.map(post =>
                     <PostPreview
-                        key={post.id} post={post}
+                        key={post.id} post={post} toggleModal={togglePostModal}
                         users={users} setActivePost={setActivePost}
                         toggleLike={toggleLike} loggedIn={!!user}
                         isLiked={function () {

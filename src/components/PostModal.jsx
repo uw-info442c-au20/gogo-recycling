@@ -100,11 +100,16 @@ const PostModal = ({ post, users, sendComment, loggedIn, toggleLike, isLiked, to
                             {post.comments.map((comment, index) => {
                                 return (
                                     <div className="comment" key={index}>
-                                        <Link to={`/profile/${comment.user.id}`}><strong>
-                                            {commenters[comment.user.id] ?
-                                                commenters[comment.user.id].displayName :
-                                                "Unknown"}
-                                        </strong></Link>: {comment.comment}
+                                        <Link
+                                            onClick={toggleModal}
+                                            to={`/profile/${comment.user.id}`}
+                                        >
+                                            <strong>
+                                                {commenters[comment.user.id] ?
+                                                    commenters[comment.user.id].displayName :
+                                                    "Unknown"}
+                                            </strong>
+                                        </Link>: {comment.comment}
                                     </div>
                                 );
                             })}
