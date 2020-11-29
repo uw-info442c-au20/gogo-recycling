@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { levelIcons } from "./LevelIcons";
+import  useScore  from "../hooks/useScore";
 
 const PostPreview = ({post, users, setActivePost, toggleLike, loggedIn, isLiked, toggleModal}) => {
     const [ pictureIndex, setPictureIndex ] = useState(0);
-
     return (
         <div
             className="card mb-4 pb-4"
@@ -63,18 +64,25 @@ const PostPreview = ({post, users, setActivePost, toggleLike, loggedIn, isLiked,
                         </h4>
                         <h6>
                             {!post.isAnonymous ?
-                            <Link
-                                className="no-modal highlight" to={`/profile/${post.user.id}`}
-                                onClick={event => event.stopPropagation()}
-                            >
+                            <div>
+                                <Link
+                                    className="no-modal highlight" to={`/profile/${post.user.id}`}
+                                    onClick={event => event.stopPropagation()}
+                                >
+
+                                {/* {Here we want to add the logic for icon} */}
                                 By {users[post.user.id] ?
                                     users[post.user.id].displayName :
                                     <em>Unknown</em>}
-                            </Link>
+                                </Link>  
+                                              
+                             </div>
                             :
                             "By Anonymous"
                             }
+                            {"here" + console.log(users[post.user.id])};     
                         </h6>
+                        {/* {temp = useScore(10)} */}
                         {post.images && post.images.length > 1 &&
                             <p className="mb-0">
                                 Image {pictureIndex + 1}/{post.images.length}

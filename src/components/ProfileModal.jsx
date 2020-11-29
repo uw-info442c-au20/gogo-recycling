@@ -1,6 +1,7 @@
 import React from "react";
 import { fireauth } from "../config/firebase";
 import { useHistory } from "react-router-dom";
+import { levelIcons } from "./LevelIcons";
 
 const ProfileModal = ({ user }) => {
     const history = useHistory();
@@ -13,7 +14,10 @@ const ProfileModal = ({ user }) => {
                         <h3 className="modal-title mx-auto">Hello {user.displayName}</h3>
                     </div>
                     <div className="modal-body">
-                        <h6>You have {user.points} points</h6>
+                        <h6>
+                            You have {user.points} points
+                            <img src={levelIcons[user.level]} alt="Icon represents lvevl of user"  className="icon" />
+                        </h6>
                         <button
                             className="btn btn-main mb-2"
                             onClick={() => history.push(`/profile/${user.local.uid}`)}

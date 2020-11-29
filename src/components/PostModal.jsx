@@ -26,7 +26,7 @@ const PostModal = ({ post, users, sendComment, loggedIn, toggleLike, isLiked, to
                 <div className="modal-content">
                     <div className="modal-header mx-auto">
                         <h1>
-                            {post.title}
+                            {post.title} 
                         </h1>
                         <i
                             className="fas fa-times-circle fa-lg text-danger"

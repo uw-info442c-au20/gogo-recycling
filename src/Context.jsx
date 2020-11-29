@@ -5,6 +5,7 @@ const Context = createContext();
 
 const ContextProvider = props => {
     const [ user, setUser ] = useState();
+    const levelInterval = 15;
 
     useEffect(() => {
         let unsubscribe = () => {};
@@ -21,11 +22,11 @@ const ContextProvider = props => {
                     admin: false,
                     points: 0,
                 });
-
                 unsubscribe = userRef.onSnapshot(snapshot => {
                     setUser({
                         ...snapshot.data(),
-                        local: { ...localUserData }
+                        local: { ...localUserData },
+                        level: defineLevel(snapshot.data().points)
                     });
                 });
             } else {
@@ -48,7 +49,8 @@ const ContextProvider = props => {
                         if (!snapshot.empty) {
                             snapshot.forEach(post => {
                                 post = post.data();
-                                newPoints += (post.likes.length + 1);
+                                console.log(post);
+                                newPoints += (post.likes.length + 5);
                             });
                         }
 
@@ -61,6 +63,20 @@ const ContextProvider = props => {
 
         updatePoints();
     }, [ user ]);
+
+    const defineLevel = (newPoints) => {
+            if (newPoints <= levelInterval) {
+                return 0;
+            } else if  (newPoints <= levelInterval * 2) {
+                return 1;
+            } else if (newPoints <= levelInterval * 3) {
+                return 2;
+            } else if (newPoints <= levelInterval * 4) {
+                return 3;
+            } else {
+                return 4;
+            }
+    }
 
     return <Context.Provider value={{user}}>
         {props.children}

@@ -358,3 +358,8 @@ input:focus {
 .profile-posts img {
     width: 100%;
 }
+
+.icon {
+    max-width: 10%;
+    max-height: 10%;
+}
