@@ -7,7 +7,6 @@ import Home from "./components/Home";
 import Posts from "./components/Posts";
 import Profile from "./components/Profile";
 import NotFound from "./components/NotFound";
-import Copyright from "./components/Copyright";
 import Navigation from "./components/Navigation";
 import RecycleGuide from "./components/RecycleGuide";
 
@@ -26,7 +25,6 @@ const App = () => {
                     </Switch>
                 </Router>
             </ContextProvider>
-            <Copyright/>
         </div>
     );
 };

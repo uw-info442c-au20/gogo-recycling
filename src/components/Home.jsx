@@ -3,7 +3,7 @@ import HomepageHeading from "../components/HomeBanner";
 
 import recycle from '../resources/recycle.png';
 import { Link } from "react-router-dom";
-
+import Copyright from "./Copyright";
 
 const Home = () => {
     return (
@@ -21,7 +21,9 @@ const Home = () => {
                 </div>
                 <div className="pb-3">Read more about recycling <span role="img" aria-label="down arrow">↓</span></div>
             </div>
-            <HomepageHeading mobile="false"></HomepageHeading>
+            <HomepageHeading></HomepageHeading>
+
+            <Copyright/>
         </main>
     );
 };
