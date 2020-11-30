@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { levelIcons } from "./LevelIcons";
-import  useScore  from "../hooks/useScore";
+import levelIcons from "./LevelIcons";
+import  scoreHelper from  "../helpers/defineLevel";
 
 const PostPreview = ({post, users, setActivePost, toggleLike, loggedIn, isLiked, toggleModal}) => {
     const [ pictureIndex, setPictureIndex ] = useState(0);
@@ -70,19 +70,19 @@ const PostPreview = ({post, users, setActivePost, toggleLike, loggedIn, isLiked,
                                     onClick={event => event.stopPropagation()}
                                 >
 
-                                {/* {Here we want to add the logic for icon} */}
                                 By {users[post.user.id] ?
-                                    users[post.user.id].displayName :
+                                    <div>
+                                        {users[post.user.id].displayName}
+                                        <img src={levelIcons[scoreHelper(users[post.user.id].points)]} 
+                                        alt="Icon represents lvevl of user"  className="icon" />
+                                    </div> :
                                     <em>Unknown</em>}
-                                </Link>  
-                                              
+                                </Link>         
                              </div>
                             :
                             "By Anonymous"
                             }
-                            {"here" + console.log(users[post.user.id])};     
                         </h6>
-                        {/* {temp = useScore(10)} */}
                         {post.images && post.images.length > 1 &&
                             <p className="mb-0">
                                 Image {pictureIndex + 1}/{post.images.length}

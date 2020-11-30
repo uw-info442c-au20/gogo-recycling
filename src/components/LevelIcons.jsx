@@ -6,7 +6,5 @@ import lv5 from '../resources/pointsIcons/lv-5.png';
 
 export const levelIcons  = [lv1, lv2, lv3, lv4, lv5];
 
-export default {
-    levelIcons
-}
+export default levelIcons;
 

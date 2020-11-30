@@ -1,11 +1,11 @@
 import React, { useState, createContext, useEffect } from "react";
 import { firebase, fireauth, firestore } from "./config/firebase";
+import  scoreHelper from  "./helpers/defineLevel";
 
 const Context = createContext();
 
 const ContextProvider = props => {
     const [ user, setUser ] = useState();
-    const levelInterval = 15;
 
     useEffect(() => {
         let unsubscribe = () => {};
@@ -26,7 +26,7 @@ const ContextProvider = props => {
                     setUser({
                         ...snapshot.data(),
                         local: { ...localUserData },
-                        level: defineLevel(snapshot.data().points)
+                        level: scoreHelper(snapshot.data().points)
                     });
                 });
             } else {
@@ -64,19 +64,6 @@ const ContextProvider = props => {
         updatePoints();
     }, [ user ]);
 
-    const defineLevel = (newPoints) => {
-            if (newPoints <= levelInterval) {
-                return 0;
-            } else if  (newPoints <= levelInterval * 2) {
-                return 1;
-            } else if (newPoints <= levelInterval * 3) {
-                return 2;
-            } else if (newPoints <= levelInterval * 4) {
-                return 3;
-            } else {
-                return 4;
-            }
-    }
 
     return <Context.Provider value={{user}}>
         {props.children}

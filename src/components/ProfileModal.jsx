@@ -1,7 +1,7 @@
 import React from "react";
 import { fireauth } from "../config/firebase";
 import { useHistory } from "react-router-dom";
-import { levelIcons } from "./LevelIcons";
+import levelIcons  from "./LevelIcons";
 
 const ProfileModal = ({ user }) => {
     const history = useHistory();

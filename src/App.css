@@ -360,6 +360,13 @@ input:focus {
 }
 
 .icon {
-    max-width: 10%;
-    max-height: 10%;
+    margin-left: 5px;
+    max-width: 8%;
+    max-height: 8%;
+}
+
+.icon-in-full-post {
+    margin-left: 5px;
+    max-width: 4%;
+    max-height: 4%;  
 }

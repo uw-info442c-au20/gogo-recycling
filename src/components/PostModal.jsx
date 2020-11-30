@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import levelIcons from "./LevelIcons";
+import  scoreHelper from  "../helpers/defineLevel";
 
 const PostModal = ({ post, users, sendComment, loggedIn, toggleLike, isLiked, toggleModal }) => {
     const [ comment, setComment ] = useState("");
@@ -80,7 +82,11 @@ const PostModal = ({ post, users, sendComment, loggedIn, toggleLike, isLiked, to
                             <em>
                                 By {post.isAnonymous ? "Anonymous" :
                                 (users[post.user.id] ?
-                                    users[post.user.id].displayName :
+                                    <div>
+                                        {users[post.user.id].displayName}
+                                        <img src={levelIcons[scoreHelper(users[post.user.id].points)]} 
+                                        alt="Icon represents lvevl of user"  className="icon-in-full-post" />
+                                    </div> :
                                     <em>Unknown</em>
                                 )}
                             </em>
