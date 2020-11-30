@@ -1,6 +1,7 @@
 import React, { useState, createContext, useEffect } from "react";
 import { firebase, fireauth, firestore } from "./config/firebase";
-import  scoreHelper from  "./helpers/defineLevel";
+
+import  computeLevel from  "./helpers/levelHelper";
 
 const Context = createContext();
 
@@ -26,7 +27,7 @@ const ContextProvider = props => {
                     setUser({
                         ...snapshot.data(),
                         local: { ...localUserData },
-                        level: scoreHelper(snapshot.data().points)
+                        level: computeLevel(snapshot.data().points)
                     });
                 });
             } else {

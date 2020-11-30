@@ -16,7 +16,13 @@ const ProfileModal = ({ user }) => {
                     <div className="modal-body">
                         <h6>
                             You have {user.points} points
-                            <img src={levelIcons[user.level]} alt="Icon represents lvevl of user"  className="icon" />
+                            <br/>
+                            Level: {user.level}
+                            <br/>
+                            <img
+                                src={levelIcons[user.level]} alt="Icon represents level of user"
+                                className="icon"
+                            />
                         </h6>
                         <button
                             className="btn btn-main mb-2"

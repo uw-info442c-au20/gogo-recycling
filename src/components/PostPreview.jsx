@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+
 import levelIcons from "./LevelIcons";
-import  scoreHelper from  "../helpers/defineLevel";
+import computeLevel from  "../helpers/levelHelper";
 
 const PostPreview = ({post, users, setActivePost, toggleLike, loggedIn, isLiked, toggleModal}) => {
     const [ pictureIndex, setPictureIndex ] = useState(0);
@@ -69,13 +70,13 @@ const PostPreview = ({post, users, setActivePost, toggleLike, loggedIn, isLiked,
                                     onClick={event => event.stopPropagation()}
                                 >
                                 By {users[post.user.id] ?
-                                    (<div>
+                                    (<span>
                                         {users[post.user.id].displayName}
-                                        <img src={levelIcons[scoreHelper(users[post.user.id].points)]} 
-                                        alt="Icon represents lvevl of user"  className="icon" />
-                                    </div>) :
+                                        <img src={levelIcons[computeLevel(users[post.user.id].points)]}
+                                        alt="Icon represents level of user"  className="icon" />
+                                    </span>) :
                                     <em>Unknown</em>}
-                                </Link>         
+                                </Link>
                             :
                             "By Anonymous"
                             }

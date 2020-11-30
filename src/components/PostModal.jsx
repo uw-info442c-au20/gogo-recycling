@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import levelIcons from "./LevelIcons";
-import  scoreHelper from  "../helpers/defineLevel";
+import computeLevel from  "../helpers/levelHelper";
 
 const PostModal = ({ post, users, sendComment, loggedIn, toggleLike, isLiked, toggleModal }) => {
     const [ comment, setComment ] = useState("");
@@ -28,7 +28,7 @@ const PostModal = ({ post, users, sendComment, loggedIn, toggleLike, isLiked, to
                 <div className="modal-content">
                     <div className="modal-header mx-auto">
                         <h1>
-                            {post.title} 
+                            {post.title}
                         </h1>
                         <i
                             className="fas fa-times-circle fa-lg text-danger"
@@ -84,7 +84,7 @@ const PostModal = ({ post, users, sendComment, loggedIn, toggleLike, isLiked, to
                                 (users[post.user.id] ?
                                     <div>
                                         {users[post.user.id].displayName}
-                                        <img src={levelIcons[scoreHelper(users[post.user.id].points)]} 
+                                        <img src={levelIcons[computeLevel(users[post.user.id].points)]}
                                         alt="Icon represents lvevl of user"  className="icon-in-full-post" />
                                     </div> :
                                     <em>Unknown</em>
