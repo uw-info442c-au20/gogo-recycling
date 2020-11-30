@@ -361,8 +361,8 @@ input:focus {
 
 .icon {
     margin-left: 5px;
-    max-width: 8%;
-    max-height: 8%;
+    max-width: 7%;
+    max-height: 7%;
 }
 
 .icon-in-full-post {
@@ -370,3 +370,11 @@ input:focus {
     max-width: 4%;
     max-height: 4%;  
 }
+
+@media only screen and (min-width: 600px) {
+    .icon-in-full-post {
+        margin-left: 5px;
+        max-width: 3.5%;
+        max-height: 3.5%;  
+    }
+  }

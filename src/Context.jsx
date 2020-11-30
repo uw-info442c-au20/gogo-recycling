@@ -49,7 +49,6 @@ const ContextProvider = props => {
                         if (!snapshot.empty) {
                             snapshot.forEach(post => {
                                 post = post.data();
-                                console.log(post);
                                 newPoints += (post.likes.length + 5);
                             });
                         }

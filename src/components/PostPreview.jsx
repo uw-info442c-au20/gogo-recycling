@@ -64,21 +64,18 @@ const PostPreview = ({post, users, setActivePost, toggleLike, loggedIn, isLiked,
                         </h4>
                         <h6>
                             {!post.isAnonymous ?
-                            <div>
                                 <Link
                                     className="no-modal highlight" to={`/profile/${post.user.id}`}
                                     onClick={event => event.stopPropagation()}
                                 >
-
                                 By {users[post.user.id] ?
-                                    <div>
+                                    (<div>
                                         {users[post.user.id].displayName}
                                         <img src={levelIcons[scoreHelper(users[post.user.id].points)]} 
                                         alt="Icon represents lvevl of user"  className="icon" />
-                                    </div> :
+                                    </div>) :
                                     <em>Unknown</em>}
                                 </Link>         
-                             </div>
                             :
                             "By Anonymous"
                             }

@@ -78,7 +78,7 @@ const PostModal = ({ post, users, sendComment, loggedIn, toggleLike, isLiked, to
                                 width: "auto", height: "auto"
                             }}
                         />
-                        <p className="mb-2">
+                        <div className="mb-2">
                             <em>
                                 By {post.isAnonymous ? "Anonymous" :
                                 (users[post.user.id] ?
@@ -93,7 +93,7 @@ const PostModal = ({ post, users, sendComment, loggedIn, toggleLike, isLiked, to
                             <br/>
                             <strong>Description:</strong> {post.description}
                             <br/>
-                        </p>
+                        </div>
                         <div
                             className={`btn ${isLiked ? "btn-danger" : "btn-outline-danger"}`}
                             onClick={() => loggedIn && toggleLike(isLiked ? "unlike" : "like", post)}
