@@ -2,9 +2,24 @@
 
 Empowering society to make sustainable choices
 
+## About us
+
+GoGo Recycling is a web based solution to help communities and companies to
+take the step towards making a more sustainable society. We are providing an
+easy way for people to come together and share their experiences towards becoming
+sustainable while giving them helpful tips along the way.
+
+## Developer information
+
+Built with:
+
+- React JS
+- Firebase
+- Bootstrap
+
 Emoji Commits are OP 🔥
 
-Build Instruction:
+Build Instructions:
 
 1. `npm install`
 2. `npm start`
