@@ -12,7 +12,7 @@ const Profile = () => {
     const posts = usePosts(userID);
 
     return (user && posts ?
-        <main>
+        <main style={{ marginTop: "6rem" }}>
             <div className="p-4 profile-info">
                 <div className="profile-img">
                     <img
