@@ -95,7 +95,10 @@ const PostPreview = ({post, users, setActivePost, toggleLike, loggedIn, isLiked,
                     <i
                         className={`${isLiked ? "fas" : "far"} fa-heart mx-auto text-danger`}
                         style={{ fontSize: "3vh" }}
-                        onClick={event => toggleLike(isLiked ? "unlike" : "like", post)}
+                        onClick={event => {
+                            event.stopPropagation();
+                            toggleLike(isLiked ? "unlike" : "like", post);
+                        }}
                     />
                 </div>}
             </div>
