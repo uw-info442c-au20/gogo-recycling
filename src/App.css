@@ -346,6 +346,10 @@ input:focus {
     max-height: 10%;
 }
 
+.modal-backdrop.show {
+    opacity: 0;
+}
+
 /* Media Queries */
   @media only screen and (min-width: 600px) {
     /* .icon {
@@ -361,7 +365,7 @@ input:focus {
     } */
   }
 
-  @media (min-width: 992px) { 
+  @media (min-width: 992px) {
     #home {
         flex-direction: row;
         justify-content: space-between;
@@ -372,12 +376,12 @@ input:focus {
         width: 40%;
         order: 1;
     }
-    
+
     #home-img {
         width: 50%;
         order: 2;
         padding: 0;
-    } 
+    }
 
     #info-container {
         flex-direction: row;
@@ -386,7 +390,7 @@ input:focus {
         margin-left: auto;
         margin-right: auto;
     }
-    
+
     #info-container div {
         width: 45%;
     }
@@ -399,7 +403,7 @@ input:focus {
         margin-bottom: 2rem;
         order: 1;
     }
-    
+
     #stat-3 {
         order: 2;
     }
@@ -418,5 +422,5 @@ input:focus {
 
     #info-2 {
         text-align: right;
-    }    
+    }
   }
