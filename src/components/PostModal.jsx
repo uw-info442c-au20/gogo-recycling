@@ -71,7 +71,7 @@ const PostModal = ({ post, users, sendComment, loggedIn, toggleLike, isLiked, to
                         </>
                         }
                         <img
-                            src={post.images[pictureIndex]} alt=""
+                            src={post.images[pictureIndex]} alt="post images"
                             className="card-img-top rounded"
                             style={{
                                 maxHeight: "75vh", maxWidth: "100%",
@@ -84,8 +84,11 @@ const PostModal = ({ post, users, sendComment, loggedIn, toggleLike, isLiked, to
                                 (users[post.user.id] ?
                                     <div>
                                         {users[post.user.id].displayName}
-                                        <img src={levelIcons[computeLevel(users[post.user.id].points)]}
-                                        alt="Icon represents lvevl of user"  className="icon-in-full-post" />
+                                        <img
+                                            src={levelIcons[computeLevel(users[post.user.id].points)]}
+                                            alt={`Level ${computeLevel(users[post.user.id].points)} icon`}
+                                            className="icon-in-full-post"
+                                        />
                                     </div> :
                                     <em>Unknown</em>
                                 )}

@@ -2,7 +2,7 @@ import React from "react";
 
 const Copyright = () => {
     return (
-        <footer className="mt-5 pb-2 font-weight-light">
+        <footer className="mt-5 pb-4 font-weight-light">
             <em>Copyright or something</em>
             <div>
                 Icons and vector made by Freepik from <a

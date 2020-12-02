@@ -49,7 +49,7 @@ const PostPreview = ({post, users, setActivePost, toggleLike, loggedIn, isLiked,
                 </>
                 }
                 <img
-                    src={post.images[pictureIndex]} alt=""
+                    src={post.images[pictureIndex]} alt="post images"
                     className="card-img-top rounded"
                 />
             </div>
@@ -73,7 +73,8 @@ const PostPreview = ({post, users, setActivePost, toggleLike, loggedIn, isLiked,
                                     (<span>
                                         {users[post.user.id].displayName}
                                         <img src={levelIcons[computeLevel(users[post.user.id].points)]}
-                                        alt="Icon represents level of user"  className="icon" />
+                                        alt={`Level ${computeLevel(users[post.user.id].points)} icon`}
+                                        className="icon"/>
                                     </span>) :
                                     <em>Unknown</em>}
                                 </Link>

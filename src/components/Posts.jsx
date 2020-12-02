@@ -8,6 +8,7 @@ import usePosts from "../hooks/usePosts";
 import PostModal from "./PostModal";
 import PostPreview from "./PostPreview";
 import CreatePostModal from "./CreatePostModal";
+import Copyright from "./Copyright";
 
 const Posts = () => {
     // Allows for modals to be programmatically toggled
@@ -77,6 +78,7 @@ const Posts = () => {
 
     return (
         <main>
+            <div id="posts">
             <h1 className="p-4">Posts</h1>
             <i
                 ref={createButton} className="fas fa-plus-circle fa-3x"
@@ -120,6 +122,9 @@ const Posts = () => {
                 className="d-none" ref={postModalButton}
                 data-toggle="modal" data-target="#postModal"
             />
+            </div>
+
+            <Copyright/>
         </main>
     );
 };

@@ -20,7 +20,8 @@ const ProfileModal = ({ user }) => {
                             Level: {user.level}
                             <br/>
                             <img
-                                src={levelIcons[user.level]} alt="Icon represents level of user"
+                                src={levelIcons[user.level]}
+                                alt={`Level ${user.level} icon`}
                                 className="icon"
                             />
                         </h6>
