@@ -34,7 +34,7 @@ const RecycleGuide = () => {
                 <div className="search p-3 px-4">
                     <span className="pr-3">I want to recycle at</span>
                     <input type="text" className="input-item" placeholder="Zipcode" defaultValue={options.zip} onChange={updateZip} />
-                    <img className="pl-2 mb-1" src="https://www.flaticon.com/svg/static/icons/svg/93/93642.svg" alt="tilted magnifying glass"></img>
+                    <img className="pl-2 mb-1" src="https://www.flaticon.com/svg/static/icons/svg/93/93642.svg" alt="tilted magnifying glass"/>
                 </div>
                 <div className="results pb-5">
                     <h1 className="pt-5 pb-3">Recycling Locations</h1>
