@@ -17,7 +17,6 @@ describe('testing routes are mapped correctly', () => {
             pathMap[routeProps.path] = routeProps.component;
             return pathMap;
           }, {});
-          console.log(pathMap)
       })
 
     it('should have 5 routes', () => {
