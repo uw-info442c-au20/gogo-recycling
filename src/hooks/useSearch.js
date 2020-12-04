@@ -39,7 +39,17 @@ const useSearch = options => {
 
             let data = await fetch(apiEndpoint + queries.queryString);
             data = await data.json();
-            setLocations(data);
+
+            // filtering out duplicates
+            let filteredData = [];
+            let addressSet = new Set();
+            data.map((zipdata) => {
+            	if (!addressSet.has(zipdata.providerid)) {
+            		addressSet.add(zipdata.providerid);
+            		filteredData.push(zipdata);
+            	}
+            });
+            setLocations(filteredData);
         }
 
         updateSearch();
