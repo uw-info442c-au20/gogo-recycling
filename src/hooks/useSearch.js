@@ -51,9 +51,8 @@ const useSearch = options => {
             // Filtering out duplicates
             let filteredData = [];
             let addressSet = new Set();
-            data.map((zipdata) => {
+            data.forEach(zipdata => {
             	if (!addressSet.has(zipdata.providerid) && addressSet.size < resultLimit) {
-            		console.log(addressSet.size);
             		addressSet.add(zipdata.providerid);
             		filteredData.push(zipdata);
             	}
