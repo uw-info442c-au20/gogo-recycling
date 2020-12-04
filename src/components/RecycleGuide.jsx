@@ -53,7 +53,6 @@ const RecycleGuide = () => {
                         const {
                             provider_name, provider_address, provider_url, phone, providerid
                         } = location;
-
                         return (
                             <div className="recycle-result p-3 mt-3" key={`${providerid} - ${index}`}>
                                 <div id="info-1" className="text-left">

@@ -43,6 +43,7 @@ const useSearch = options => {
                 	const cityCapitalized = options.city.charAt(0).toUpperCase() + options.city.slice(1).toLowerCase();
                 	queries.add("city", cityCapitalized);
                 }
+                
             }
 
             let data = await fetch(apiEndpoint + queries.queryString);
