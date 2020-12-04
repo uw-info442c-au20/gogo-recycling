@@ -34,13 +34,15 @@ const useSearch = options => {
 
                 if (options.zip) {
                     queries.add("zip", options.zip);
+                } else if (options.city) {
+                	queries.add("city", options.city);
                 }
             }
 
             let data = await fetch(apiEndpoint + queries.queryString);
             data = await data.json();
 
-            // filtering out duplicates
+            // Filtering out duplicates
             let filteredData = [];
             let addressSet = new Set();
             data.map((zipdata) => {
