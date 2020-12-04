@@ -35,7 +35,8 @@ const useSearch = options => {
                 if (options.zip) {
                     queries.add("zip", options.zip);
                 } else if (options.city) {
-                	queries.add("city", options.city);
+                	const cityCapitalized = options.city.charAt(0).toUpperCase() + options.city.slice(1).toLowerCase();
+                	queries.add("city", cityCapitalized);
                 }
             }
 
