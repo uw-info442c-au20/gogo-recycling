@@ -1,11 +1,12 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import  { Route } from 'react-router-dom';
+import App from '../App';
 import  Home  from '../components/Home';
 import Posts from '../components/Posts';
 import Profile from '../components/Profile';
 import RecycleGuide from '../components/RecycleGuide';
-import App from '../App';
+
 
 describe('testing routes are mapped correctly', () => {
     let pathMap = {};
