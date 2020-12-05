@@ -30,7 +30,7 @@ export default function CenteredGrid() {
                 <div id="stat-2" className="shadow p-4">
                     <h2>Proper Recycling</h2>
                     <img id="stat2" src={recyclePromo} alt="People advertising proper recycling" />
-                    <p className="px-3">
+                    <p className="px-3 text-left">
                         <ul>
                             <li>
                                 Make recycling a collaborative effort where everyone in the family
@@ -50,7 +50,7 @@ export default function CenteredGrid() {
                 <div id="stat-3" className="shadow p-4">
                     <h2>Beyond Recycling</h2>
                     <img id="stat3" src={sustainableLiving} alt="Sustainable Living" />
-                    <p className="px-3 pt-4">
+                    <p className="px-3 pt-4 text-left">
                         <ul>
                             <li >Get educated and stay updated on the latest news to make more informed decisions.</li>
                             <li>Limit waste by using reusable, eco-friendly products and reducing packaging.</li>
