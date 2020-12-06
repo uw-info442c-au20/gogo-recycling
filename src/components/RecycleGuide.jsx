@@ -45,7 +45,6 @@ const RecycleGuide = () => {
 
   const updateMaterialSet = () => {
     materialSet.clear();
-    materialSet.add("");
     locations.forEach((location) => {
       if (!materialSet.has(location.material_handled)) {
         materialSet.add(location.material_handled);
@@ -93,6 +92,7 @@ const RecycleGuide = () => {
             <span className="pr-3">Filter by material </span>
             {updateMaterialSet()}
             <select onChange={onDropdownSelected}>
+              <option value="">All materials</option>
               {Array.from(materialSet)
                 .sort()
                 .map((material, key) => {
