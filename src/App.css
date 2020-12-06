@@ -307,6 +307,14 @@ input:focus {
   color: #363837;
 }
 
+#info-1 a {
+  word-wrap: break-word;
+}
+
+#info-2 {
+  text-align: left;
+}
+
 /* Profile Page */
 .profile-info {
   display: flex;
