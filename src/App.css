@@ -235,6 +235,22 @@ i.fas.fa-plus-circle.fa-3x {
   color: #72bd6b;
 }
 
+.icon {
+  margin-left: 5px;
+  max-width: 12%;
+  max-height: 12%;
+}
+
+.icon-in-full-post {
+  margin-left: 5px;
+  max-width: 10%;
+  max-height: 10%;
+}
+
+.modal-backdrop.show {
+  opacity: 0;
+}
+
 /* Recycle Guide */
 .search {
   background-color: white;
@@ -296,6 +312,7 @@ input:focus {
   display: flex;
   align-items: center;
   text-align: center;
+  border-bottom: 1px solid rgba(var(--b38, 219, 219, 219), 1);
 }
 
 .profile-img img {
@@ -332,41 +349,27 @@ input:focus {
   height: 1rem;
 }
 
-.profile-text2 .btn {
-  border-radius: 3px;
-  border-style: solid;
-  border-color: rgba(var(--b6a, 219, 219, 219), 1);
-}
-
 .post-amount {
   font-weight: bold;
 }
 
 .profile-posts {
-  border-top: 1px solid rgba(var(--b38, 219, 219, 219), 1);
-  width: 70%;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.profile-posts div {
+  max-width: 20rem;
+  border-radius: 10px;
 }
 
 .profile-posts img {
-  width: 100%;
-}
-
-.icon {
-  margin-left: 5px;
-  max-width: 12%;
-  max-height: 12%;
-}
-
-.icon-in-full-post {
-  margin-left: 5px;
-  max-width: 10%;
-  max-height: 10%;
-}
-
-.modal-backdrop.show {
-  opacity: 0;
+  border-radius: 10px 10px 0 0;
+  width: 100%
 }
 
 /* Media Queries */
