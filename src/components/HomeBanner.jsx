@@ -18,8 +18,7 @@ export default function CenteredGrid() {
                 {/* video on the connection between COVID and sustainable living */}
                 <div className="p-3">
                 <h2>Sustainable Living During COVID</h2>
-                    <iframe
-                        width="500" height="320"
+                    <iframe className="video"
                         src="https://www.youtube.com/embed/R1h1L6vj3BI"
                         title="Sustainability during COVID"
                     ></iframe>

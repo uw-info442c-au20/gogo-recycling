@@ -38,6 +38,10 @@ a:hover {
   text-decoration: underline;
 }
 
+#landing-page {
+  padding-top: 2rem;
+}
+
 #recycling-guide,
 #posts {
   padding-top: 6rem;
@@ -151,7 +155,6 @@ footer a {
 
 #home-img {
   width: 85%;
-  padding-top: 2rem;
   padding-bottom: 2rem;
   margin-left: auto;
   margin-right: auto;
@@ -160,6 +163,11 @@ footer a {
 
 #home-img img {
   width: 100%;
+}
+
+.video {
+  width: 100%;
+  min-height: 400px;
 }
 
 #stat-2 img,
@@ -214,6 +222,10 @@ footer a {
   display: inline;
 }
 
+.card-body {
+  width: 100%;
+}
+
 .carousel-control-next-icon,
 .carousel-control-prev-icon {
   filter: invert(100%);
@@ -235,10 +247,15 @@ i.fas.fa-plus-circle.fa-3x {
   font-size: 1.5rem;
 }
 
+.search select {
+  width: 100%;
+}
+
 input.input-item {
   color: #72bd6b;
   border: none;
   border-bottom: 0.1rem solid #e5e5e5;
+  width: 90%;
 }
 
 input:focus {
@@ -248,7 +265,7 @@ input:focus {
 .search img {
   display: inline;
   width: auto;
-  height: 1em;
+  height: .9em;
 }
 
 .results h1 {
