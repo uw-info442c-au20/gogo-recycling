@@ -1,10 +1,9 @@
 import React from "react";
-
 import { useLocation } from "react-router-dom";
 import usePosts from "../hooks/usePosts";
-
 import useUser from "../hooks/useUser";
 import anon from "../resources/anon.png";
+import levelIcons  from "./LevelIcons";
 
 const Profile = () => {
     const userID = useLocation().pathname.split("/")[2];
@@ -12,13 +11,15 @@ const Profile = () => {
     const posts = usePosts(userID);
 
     return (user && posts ?
-        <main style={{ marginTop: "6rem" }}>
+        <main style={{ marginTop: "7rem" }}>
             <div className="p-4 profile-info">
                 <div className="profile-img">
                     <img
-                        className="pb-1 rounded-circle" alt="Anonymous user icon"
-                        src={anon}
+                        className="pb-1 rounded-circle"
+                        src={levelIcons[0]}
+                        alt="An illustrated green leaf"
                     /> 
+                    <p>Level: 0</p>
                 </div>
                 <div className="profile-text pl-5">
                     <div className="profile-text2">
