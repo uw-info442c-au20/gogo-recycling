@@ -27,7 +27,7 @@ const Profile = () => {
                     </div>
                     <p className="mb-0">
                         <span className="post-amount">{user.points}</span> points
-                        | <span className="post-amount">{posts.length}</span> posts
+                        | <span className="post-amount">{posts.length}</span> post(s)
                     </p>
                 </div>
             </div>
