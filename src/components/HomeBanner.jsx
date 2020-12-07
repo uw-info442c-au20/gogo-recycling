@@ -26,10 +26,10 @@ export default function CenteredGrid() {
             </div>
 
             <div id="info-container">
-                <div id="stat-2" className="shadow p-4">
+                <div id="stat-2" className="shadow p-4 m-2">
                     <h2>Proper Recycling</h2>
                     <img id="stat2" src={recyclePromo} alt="People advertising proper recycling" />
-                    <p className="px-3 text-left">
+                    <div className="text-left">
                         <ul>
                             <li>
                                 Make recycling a collaborative effort where everyone in the family
@@ -43,13 +43,13 @@ export default function CenteredGrid() {
                                 will contaminate recyclable materials.
                             </li>
                         </ul>
-                    </p>
+                    </div>
                     {/* <Link to="/"><button className="btn btn-main">Easy Recycling Guide</button></Link> */}
                 </div>
-                <div id="stat-3" className="shadow p-4">
+                <div id="stat-3" className="shadow p-4 m-2">
                     <h2>Beyond Recycling</h2>
                     <img id="stat3" src={sustainableLiving} alt="Sustainable Living" />
-                    <p className="px-3 pt-4 text-left">
+                    <div className="pt-4 text-left">
                         <ul>
                             <li >Get educated and stay updated on the latest news to make more informed decisions.</li>
                             <li>Limit waste by using reusable, eco-friendly products and reducing packaging.</li>
@@ -57,7 +57,7 @@ export default function CenteredGrid() {
                             <li>Advocate for change and promote sustainable living in your personal and professional networks.</li>
                             <li>Use more eco-friendly methods of transportation such as walking, biking, public transportation or carpooling.</li>
                         </ul>
-                    </p>
+                    </div>
                     {/* <Link to="/"><button className="btn btn-main">Explore Business with Circular Economy</button></Link> */}
                 </div>
             </div>

@@ -1,9 +1,9 @@
 import React from "react";
-import { useLocation } from "react-router-dom";
-import usePosts from "../hooks/usePosts";
 import useUser from "../hooks/useUser";
-import anon from "../resources/anon.png";
 import levelIcons  from "./LevelIcons";
+import usePosts from "../hooks/usePosts";
+import { useLocation } from "react-router-dom";
+import calculateLevel from "../helpers/levelHelper";
 
 const Profile = () => {
     const userID = useLocation().pathname.split("/")[2];
@@ -16,10 +16,10 @@ const Profile = () => {
                 <div className="profile-img">
                     <img
                         className="pb-1 rounded-circle"
-                        src={levelIcons[0]}
+                        src={levelIcons[calculateLevel(user.points)]}
                         alt="An illustrated green leaf"
-                    /> 
-                    <p>Level: 0</p>
+                    />
+                    <p>Level: {calculateLevel(user.points)}</p>
                 </div>
                 <div className="profile-text pl-5">
                     <div className="profile-text2">
@@ -31,15 +31,19 @@ const Profile = () => {
                     </p>
                 </div>
             </div>
-            <div className="profile-posts">
-                {posts.length > 0 && posts.map(post =>
-                    <div className="m-3 shadow">
-                        <img className="pb-2" src={post.images}/>
-                        <p className="px-2 m-0">{post.description}</p>
-                        <p className="m-2">{post.likes.length} like(s)</p>
-                    </div>
-                )}
-            </div>
+            {posts.length > 0 &&
+            <>
+                <h2 className="pt-2">Posts</h2>
+                <div className="profile-posts">
+                    {posts.map(post =>
+                        <div className="m-3 shadow" key={post.id}>
+                            {post.images && <img className="pb-2" src={post.images[0]} alt="Post preview"/>}
+                            <p className="px-2 m-0">{post.description}</p>
+                            <p className="m-2">{post.likes.length} like(s)</p>
+                        </div>
+                    )}
+                </div>
+            </>}
         </main>
     : <main><h1>Loading...</h1></main>);
 };
