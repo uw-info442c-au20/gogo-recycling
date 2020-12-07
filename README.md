@@ -13,6 +13,13 @@ sustainable while giving them helpful tips along the way.
 
 ## Developer information
 
+The Team:
+Amanda Park
+Anushka Narvekar
+Kayla Chea
+KV Le
+Sruthi Dikkala
+
 Built with:
 
 - React JS
@@ -24,6 +31,6 @@ Emoji Commits are OP 🔥
 Build Instructions:
 
 1. `npm install`
-2. `npm start`
+2. `npm start` or `node ./node_modules/react-scripts/bin/react-scripts.js start` (< Sometimes `npm start` doesn't work on UNIX)
 
 To deploy, use `npm run deploy` < Please be careful with this
